@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PixelMan Demo Portfolio — Live examples of websites &amp; interactive experiences built for Roblox creators.">
-    <title>PixelMan | Demo Portfolio</title>
+    <meta name="description" content="PixelMan Wiki Demo — Fully customizable Wikipedia-style page. Change colors, fonts, borders &amp; more in real-time.">
+    <title>Wiki Demo | PixelMan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
@@ -15,236 +15,273 @@
         }
 
         * {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms;
+            transition-duration: 200ms;
         }
 
         .tail-container * {
             font-family: 'Inter', system-ui, sans-serif;
         }
-        
-        .logo-font {
-            font-family: 'Space Grotesk', sans-serif;
+
+        .wiki-font {
+            font-family: Georgia, serif;
         }
 
         body {
             background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
         }
 
-        .hero-bg {
-            background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.15) 0%, transparent 50%);
+        .controls {
+            backdrop-filter: blur(16px);
         }
 
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .wiki-container {
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
         }
 
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-10px) scale(1.04);
-            box-shadow: 0 25px 50px -12px rgb(99 102 241 / 0.25);
-        }
-
-        .demo-frame {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+        .live-badge {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
     </style>
 </head>
 <body class="tail-container text-white">
 
-    <!-- NAVBAR (exactly matches main site) -->
+    <!-- NAVBAR (matches main site & demo portfolio) -->
     <nav class="sticky top-0 z-50 bg-[#020617]/80 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
-            
-            <!-- Logo -->
             <div class="flex items-center gap-x-3">
                 <div class="w-9 h-9 bg-gradient-to-br from-[#6366f1] to-[#22c55e] rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-inner">🧩</div>
-                <h1 class="logo-font text-3xl tracking-[-1px] bg-gradient-to-r from-[#6366f1] to-[#22c55e] bg-clip-text text-transparent">PixelMan</h1>
+                <h1 class="text-3xl tracking-[-1px] font-semibold bg-gradient-to-r from-[#6366f1] to-[#22c55e] bg-clip-text text-transparent">PixelMan</h1>
             </div>
 
-            <!-- Menu -->
-            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
-                <a href="../index.html" class="nav-link text-zinc-300 hover:text-white">← Back to Home</a>
-                <a href="#demos" class="nav-link text-zinc-300 hover:text-white">All Demos</a>
+            <div class="flex items-center gap-x-6 text-sm font-medium">
+                <a href="demo.html" class="hover:text-[#22c55e] flex items-center gap-1">
+                    ← Back to All Demos
+                </a>
+                <span class="text-emerald-400 text-xs font-bold px-3 py-1 bg-emerald-400/10 rounded-3xl live-badge">LIVE CUSTOMIZABLE DEMO</span>
             </div>
 
-            <!-- CTA -->
-            <div class="flex items-center gap-x-4">
-                <button onclick="window.location.href='../index.html'" 
-                        class="px-6 py-3 text-sm font-semibold border border-white/30 hover:border-white/60 rounded-3xl flex items-center gap-x-2 hover:scale-105">
-                    Back to Main Site
-                </button>
-                
-                <button onclick="window.location.href='../index.html#pricing'" 
-                        class="px-8 py-3 bg-gradient-to-r from-[#6366f1] to-[#22c55e] hover:from-[#22c55e] hover:to-[#6366f1] text-white font-semibold rounded-3xl flex items-center gap-x-2 shadow-lg shadow-[#6366f1]/30 hover:shadow-xl hover:shadow-[#6366f1]/50">
-                    Start Your Project
-                    <span class="text-xl leading-none">→</span>
-                </button>
-            </div>
+            <button onclick="window.location.href='../index.html'" 
+                    class="px-8 py-3 bg-gradient-to-r from-[#6366f1] to-[#22c55e] text-white font-semibold rounded-3xl flex items-center gap-x-2 hover:scale-105">
+                Start Your Project
+                <span class="text-xl">→</span>
+            </button>
         </div>
     </nav>
 
-    <!-- HERO / HEADER -->
-    <section class="hero-bg min-h-[60vh] flex items-center relative overflow-hidden">
-        <div class="max-w-screen-2xl mx-auto px-8 text-center">
-            <div class="inline-flex items-center bg-white/10 text-white text-sm font-medium px-6 h-10 rounded-3xl backdrop-blur-md border border-white/10 mb-6">
-                LIVE DEMO PORTFOLIO
-            </div>
-            
-            <h1 class="text-6xl md:text-7xl font-semibold tracking-[-3px] leading-none logo-font mb-6">
-                Real demos.<br>
-                <span class="bg-gradient-to-r from-[#6366f1] via-[#22c55e] to-[#6366f1] bg-clip-text text-transparent">Built for Roblox creators.</span>
-            </h1>
-            
-            <p class="text-2xl text-zinc-300 max-w-2xl mx-auto">
-                Every project below was made from scratch — no templates. 
-                Click any card to open the live demo in a new tab.
-            </p>
-
-            <div class="mt-12 flex justify-center">
-                <div class="demo-frame bg-zinc-900/70 backdrop-blur-3xl border border-white/20 rounded-3xl p-4 shadow-2xl inline-flex items-center gap-3 text-sm">
-                    <span class="px-4 py-2 bg-emerald-400 text-zinc-950 font-semibold rounded-3xl">NEW</span>
-                    All demos are fully responsive and optimized for speed
-                </div>
-            </div>
+    <!-- HERO HEADER -->
+    <div class="max-w-screen-2xl mx-auto px-8 pt-12 pb-8 text-center">
+        <div class="inline-flex items-center bg-white/10 backdrop-blur-md px-6 h-10 rounded-3xl text-sm font-medium border border-white/10 mb-4">
+            ✨ INTERACTIVE WIKI DEMO
         </div>
-    </section>
-
-    <!-- DEMO GRID -->
-    <section id="demos" class="max-w-screen-2xl mx-auto px-8 py-20">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- Demo 1 -->
-            <div onclick="window.open('wiki-demo.html', '_blank')" 
-                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
-                <div class="text-6xl mb-6">📖</div>
-                <h3 class="text-3xl font-semibold mb-3">Wiki-Style Project</h3>
-                <p class="text-zinc-400 flex-1">Clean, structured layout with smooth navigation. Perfect for game wikis, info hubs, or documentation.</p>
-                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
-                    <span class="text-emerald-400 font-medium">Basic • 450 Robux</span>
-                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
-                </div>
-            </div>
-
-            <!-- Demo 2 -->
-            <div onclick="window.open('https://demo-business.com', '_blank')" 
-                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
-                <div class="text-6xl mb-6">💼</div>
-                <h3 class="text-3xl font-semibold mb-3">Business Landing Page</h3>
-                <p class="text-zinc-400 flex-1">Conversion-focused design with modern animations and mobile-first layout.</p>
-                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
-                    <span class="text-emerald-400 font-medium">Basic • 750 Robux</span>
-                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
-                </div>
-            </div>
-
-            <!-- Demo 3 -->
-            <div onclick="window.open('https://demo-portfolio.com', '_blank')" 
-                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
-                <div class="text-6xl mb-6">🖼️</div>
-                <h3 class="text-3xl font-semibold mb-3">Portfolio Showcase</h3>
-                <p class="text-zinc-400 flex-1">Interactive portfolio with hover effects, smooth scrolling, and polished UI.</p>
-                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
-                    <span class="text-emerald-400 font-medium">Basic • 920 Robux</span>
-                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
-                </div>
-            </div>
-
-            <!-- Demo 4 -->
-            <div onclick="window.open('https://demo-3d.com', '_blank')" 
-                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
-                <div class="text-6xl mb-6">🌌</div>
-                <h3 class="text-3xl font-semibold mb-3">3D Simulation</h3>
-                <p class="text-zinc-400 flex-1">Static + interactive 3D elements powered by Three.js. Feels premium and immersive.</p>
-                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
-                    <span class="text-emerald-400 font-medium">Advanced • 2.8K Robux</span>
-                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
-                </div>
-            </div>
-
-            <!-- Demo 5 -->
-            <div onclick="window.open('https://demo-gameui.com', '_blank')" 
-                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
-                <div class="text-6xl mb-6">🎮</div>
-                <h3 class="text-3xl font-semibold mb-3">Game-Style UI</h3>
-                <p class="text-zinc-400 flex-1">Full HUD-style interface with menus, buttons, and Roblox-inspired immersive design.</p>
-                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
-                    <span class="text-emerald-400 font-medium">Advanced • 2.4K Robux</span>
-                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
-                </div>
-            </div>
-
-            <!-- Demo 6 -->
-            <div onclick="window.open('https://demo-blog.com', '_blank')" 
-                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
-                <div class="text-6xl mb-6">📰</div>
-                <h3 class="text-3xl font-semibold mb-3">Blog / Article Layout</h3>
-                <p class="text-zinc-400 flex-1">Beautiful typography, categories, and responsive content-focused design.</p>
-                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
-                    <span class="text-emerald-400 font-medium">Basic • 680 Robux</span>
-                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <div class="max-w-screen-2xl mx-auto px-8 py-20 text-center bg-gradient-to-r from-[#6366f1]/10 to-[#22c55e]/10 rounded-t-[4rem]">
-        <h2 class="text-5xl font-semibold mb-6">Seen something you love?</h2>
-        <p class="text-2xl text-zinc-300 mb-10">Let’s build your own version — faster and exactly how you want it.</p>
-        <button onclick="window.location.href='../index.html#pricing'" 
-                class="px-12 py-7 text-2xl font-semibold bg-white text-zinc-950 rounded-3xl inline-flex items-center gap-x-4 hover:scale-110">
-            START YOUR PROJECT
-            <span class="text-4xl">🧩</span>
-        </button>
+        <h1 class="text-5xl md:text-6xl font-semibold tracking-[-2px] bg-gradient-to-r from-[#6366f1] via-[#22c55e] to-[#6366f1] bg-clip-text text-transparent">
+            Wiki Demo
+        </h1>
+        <p class="text-xl text-zinc-300 max-w-xl mx-auto mt-4">
+            A clean, Wikipedia-style page you can customize in real-time.<br>
+            Perfect for game wikis, documentation, or info hubs.
+        </p>
     </div>
 
-    <!-- FOOTER (matches main site) -->
-    <footer class="bg-[#020617] border-t border-white/10 py-12">
-        <div class="max-w-screen-2xl mx-auto px-8 text-zinc-400 text-sm flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>© 2026 PixelMan — Demo Portfolio</div>
-            <div class="flex gap-6">
-                <a href="../index.html" class="hover:text-white">Back to Main Site</a>
+    <div class="max-w-screen-2xl mx-auto px-8 pb-20 grid lg:grid-cols-12 gap-10">
+
+        <!-- CUSTOMIZATION PANEL -->
+        <div class="lg:col-span-3">
+            <div class="controls sticky top-8 bg-[#020617]/90 border border-white/20 rounded-3xl p-8 shadow-2xl">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-semibold flex items-center gap-2">
+                        🎨 Customize Live
+                    </h3>
+                    <button onclick="resetToDefault()" 
+                            class="text-xs px-4 py-2 bg-white/10 hover:bg-white/20 rounded-2xl font-medium">
+                        Reset All
+                    </button>
+                </div>
+
+                <div class="space-y-6 text-sm">
+                    <div>
+                        <label class="block text-zinc-400 mb-1">Page Background</label>
+                        <input type="color" id="bgColor" value="#0f172a" class="w-full h-10 rounded-2xl overflow-hidden">
+                    </div>
+
+                    <div>
+                        <label class="block text-zinc-400 mb-1">Wiki Container Background</label>
+                        <input type="color" id="containerBg" value="#ffffff" class="w-full h-10 rounded-2xl overflow-hidden">
+                    </div>
+
+                    <div>
+                        <label class="block text-zinc-400 mb-1">Border Color</label>
+                        <input type="color" id="borderColor" value="#e5e7eb" class="w-full h-10 rounded-2xl overflow-hidden">
+                    </div>
+
+                    <div>
+                        <label class="block text-zinc-400 mb-1">Border Radius <span id="borderRadiusValue" class="text-emerald-400 font-medium">12</span>px</label>
+                        <input type="range" id="borderRadius" min="0" max="40" value="12" class="w-full accent-[#22c55e]">
+                    </div>
+
+                    <div>
+                        <label class="block text-zinc-400 mb-1">Text Size <span id="textSizeValue" class="text-emerald-400 font-medium">18</span>px</label>
+                        <input type="range" id="textSize" min="14" max="24" value="18" class="w-full accent-[#22c55e]">
+                    </div>
+
+                    <div>
+                        <label class="block text-zinc-400 mb-1">Text Color</label>
+                        <input type="color" id="textColor" value="#111827" class="w-full h-10 rounded-2xl overflow-hidden">
+                    </div>
+
+                    <div>
+                        <label class="block text-zinc-400 mb-1">Font Family</label>
+                        <select id="fontFamily" class="w-full bg-white/10 border border-white/20 rounded-2xl px-4 py-3 text-white focus:outline-none">
+                            <option value="Georgia, serif">Georgia (Classic Wiki)</option>
+                            <option value="Inter, sans-serif">Inter (Modern)</option>
+                            <option value="Space Grotesk, sans-serif">Space Grotesk (Bold)</option>
+                            <option value="Arial, sans-serif">Arial</option>
+                            <option value="Verdana, sans-serif">Verdana</option>
+                        </select>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 text-xs text-zinc-400">
+                        Changes apply instantly.<br>
+                        Great for showing clients how their wiki can look.
+                    </div>
+                </div>
             </div>
-            <div class="text-xs">All demos built from scratch • No templates used</div>
         </div>
+
+        <!-- WIKI CONTENT -->
+        <div class="lg:col-span-9">
+            <div id="wikiContainer" class="wiki-container bg-white border border-[#e5e7eb] rounded-3xl p-10 md:p-14 text-[#111827] wiki-font max-w-4xl mx-auto">
+                
+                <div class="flex items-center justify-between mb-8 border-b pb-6">
+                    <h1 id="pageTitle" class="text-4xl font-bold text-[#202122]">AetherForge Wiki</h1>
+                    <div class="text-xs font-medium bg-emerald-100 text-emerald-700 px-4 py-1 rounded-3xl">Last edited: 2 hours ago</div>
+                </div>
+
+                <p class="text-lg leading-relaxed mb-10">
+                    Welcome to the official wiki for <strong>AetherForge</strong> — a fast-paced Roblox battle arena. 
+                    Use the controls on the left to instantly change the entire look of this page.
+                </p>
+
+                <h2 class="text-3xl font-semibold mb-4">1. Introduction</h2>
+                <p class="mb-8">
+                    AetherForge is a competitive 4v4 arena game featuring dynamic map destruction, 
+                    elemental abilities, and intense team-based combat.
+                </p>
+
+                <h2 class="text-3xl font-semibold mb-4">2. Gameplay Mechanics</h2>
+                <ul class="list-disc pl-6 space-y-3 mb-10">
+                    <li>Real-time map destruction using physics</li>
+                    <li>6 unique elemental classes with custom abilities</li>
+                    <li>Ranked matchmaking and seasonal rewards</li>
+                    <li>Cross-platform play with full controller support</li>
+                </ul>
+
+                <h2 class="text-3xl font-semibold mb-4">3. Key Features</h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-10">
+                    <div class="bg-zinc-100 p-6 rounded-2xl">
+                        <strong>Dynamic Environments</strong><br>
+                        Every match changes the battlefield in real-time.
+                    </div>
+                    <div class="bg-zinc-100 p-6 rounded-2xl">
+                        <strong>Progression System</strong><br>
+                        Unlock cosmetics, emotes, and power-ups.
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-semibold mb-4">4. Community &amp; Tips</h2>
+                <p class="mb-6">
+                    Pro tip: Mastering the “Void Surge” ability early gives you a massive advantage in the late game.
+                </p>
+
+                <div class="border border-dashed border-zinc-300 rounded-2xl p-8 text-center text-zinc-400 text-sm">
+                    This entire wiki page is built with clean, modern HTML + CSS — exactly the kind of foundation I deliver to clients.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#020617] border-t border-white/10 py-10 text-center text-zinc-400 text-sm">
+        © 2026 PixelMan • This is a fully interactive demo. 
+        Built to showcase real-time customization capabilities for your Roblox project.
     </footer>
 
     <script>
-        // Simple scroll animation for cards
-        function handleScrollAnimations() {
-            const cards = document.querySelectorAll('.card-hover')
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1'
-                        entry.target.style.transform = 'translateY(0)'
-                    }
-                })
-            }, { threshold: 0.15 })
+        // Tailwind script already loaded
+
+        const wikiContainer = document.getElementById('wikiContainer');
+        const bodyEl = document.body;
+
+        // Controls
+        const bgColor = document.getElementById('bgColor');
+        const containerBg = document.getElementById('containerBg');
+        const borderColor = document.getElementById('borderColor');
+        const borderRadius = document.getElementById('borderRadius');
+        const borderRadiusValue = document.getElementById('borderRadiusValue');
+        const textSize = document.getElementById('textSize');
+        const textSizeValue = document.getElementById('textSizeValue');
+        const textColor = document.getElementById('textColor');
+        const fontFamily = document.getElementById('fontFamily');
+
+        // Live updates
+        bgColor.addEventListener('input', () => bodyEl.style.background = bgColor.value);
+        
+        containerBg.addEventListener('input', () => {
+            wikiContainer.style.backgroundColor = containerBg.value;
+        });
+
+        borderColor.addEventListener('input', () => {
+            wikiContainer.style.borderColor = borderColor.value;
+        });
+
+        borderRadius.addEventListener('input', () => {
+            wikiContainer.style.borderRadius = `${borderRadius.value}px`;
+            borderRadiusValue.textContent = borderRadius.value;
+        });
+
+        textSize.addEventListener('input', () => {
+            wikiContainer.style.fontSize = `${textSize.value}px`;
+            textSizeValue.textContent = textSize.value;
+        });
+
+        textColor.addEventListener('input', () => {
+            wikiContainer.style.color = textColor.value;
+        });
+
+        fontFamily.addEventListener('change', () => {
+            wikiContainer.style.fontFamily = fontFamily.value;
+        });
+
+        // Reset function
+        function resetToDefault() {
+            // Reset colors
+            bgColor.value = '#0f172a';
+            bodyEl.style.background = '#0f172a';
             
-            cards.forEach(card => {
-                card.style.opacity = '0'
-                card.style.transform = 'translateY(30px)'
-                observer.observe(card)
-            })
+            containerBg.value = '#ffffff';
+            wikiContainer.style.backgroundColor = '#ffffff';
+            
+            borderColor.value = '#e5e7eb';
+            wikiContainer.style.borderColor = '#e5e7eb';
+            
+            borderRadius.value = 12;
+            wikiContainer.style.borderRadius = '12px';
+            borderRadiusValue.textContent = '12';
+            
+            textSize.value = 18;
+            wikiContainer.style.fontSize = '18px';
+            textSizeValue.textContent = '18';
+            
+            textColor.value = '#111827';
+            wikiContainer.style.color = '#111827';
+            
+            fontFamily.value = 'Georgia, serif';
+            wikiContainer.style.fontFamily = 'Georgia, serif';
         }
 
-        window.onload = () => {
-            handleScrollAnimations()
-            console.log('%c🚀 PixelMan Demo Portfolio loaded — matching the main site perfectly!', 'color:#22c55e; font-family:monospace;')
-        }
+        // Console message
+        console.log('%c✅ PixelMan Wiki Demo loaded — fully customizable!', 'color:#22c55e; font-family:monospace;');
     </script>
 </body>
 </html>
