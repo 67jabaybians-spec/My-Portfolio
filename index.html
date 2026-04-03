@@ -1,203 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>PixelMan | Web Developer</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PixelMan - Pixel-perfect websites & interactive experiences">
+    <title>PixelMan | Web Developer</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #6366f1;
+            --accent: #22c55e;
+            --bg: #0f172a;
+            --card-bg: rgba(255,255,255,0.05);
+        }
 
-<style>
-/* Basic Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Body */
-body {
-  font-family: "Inter", Arial, sans-serif;
-  background: linear-gradient(135deg, #0f172a, #020617);
-  color: #ffffff;
-  line-height: 1.6;
-}
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #020617);
+            color: #ffffff;
+            line-height: 1.6;
+        }
 
-/* Container */
-.container {
-  max-width: 960px;
-  margin: auto;
-  padding: 50px 20px;
-}
+        .container {
+            max-width: 960px;
+            margin: auto;
+            padding: 50px 20px;
+        }
 
-/* Header */
-h1 {
-  font-size: 3rem;
-  text-align: center;
-  background: linear-gradient(90deg, #6366f1, #22c55e);
-  -webkit-background-clip: text;
-  color: transparent;
-  margin-bottom: 10px;
-}
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-.subtitle {
-  text-align: center;
-  opacity: 0.7;
-  font-size: 1.2rem;
-  margin-bottom: 50px;
-}
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, #6366f1, #22c55e);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
+        }
 
-/* Cards */
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 30px;
-  border-radius: 16px;
-  margin-bottom: 30px;
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
+        .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.75;
+        }
 
-.card:hover {
-  transform: translateY(-6px);
-  background: rgba(255,255,255,0.08);
-}
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            padding: 32px;
+            border-radius: 20px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
 
-.card h2 {
-  margin-bottom: 15px;
-}
+        .card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
 
-.card ul {
-  list-style: none;
-  padding: 0;
-}
+        .card h2 {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.card li {
-  margin: 10px 0;
-}
+        /* Reviews */
+        .review {
+            background: rgba(255,255,255,0.03);
+            padding: 24px;
+            border-radius: 16px;
+            margin: 18px 0;
+            border-left: 5px solid var(--accent);
+            font-style: italic;
+        }
 
-.card p {
-  opacity: 0.7;
-  margin-top: 10px;
-}
+        .review span {
+            display: block;
+            margin-top: 12px;
+            opacity: 0.7;
+            font-style: normal;
+            font-size: 0.95rem;
+        }
 
-/* Buttons */
-.button {
-  display: inline-block;
-  background: #6366f1;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 12px;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease;
-  cursor: pointer;
-}
+        /* Buttons */
+        .button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
 
-.button:hover {
-  background: #4f46e5;
-  transform: scale(1.05);
-}
+        .button:hover {
+            background: #4f46e5;
+            transform: scale(1.06);
+        }
 
-/* Demo Section Buttons */
-.demo-button {
-  background: #22c55e;
-  margin-top: 15px;
-}
+        .demo-button {
+            background: var(--accent);
+        }
 
-.demo-button:hover {
-  background: #16a34a;
-}
+        .demo-button:hover {
+            background: #16a34a;
+        }
 
-/* Footer */
-.footer {
-  text-align: center;
-  margin-top: 50px;
-  opacity: 0.5;
-  font-size: 0.9rem;
-}
-</style>
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 70px;
+            opacity: 0.5;
+            font-size: 0.95rem;
+        }
+
+        /* Small responsive tweaks */
+        @media (max-width: 640px) {
+            h1 { font-size: 2.8rem; }
+            .card { padding: 24px; }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
 
-<div class="container">
+        <!-- Hero -->
+        <header>
+            <h1>PixelMan</h1>
+            <p class="subtitle">Pixel-perfect websites &amp; interactive experiences</p>
+        </header>
 
-  <!-- Hero Section -->
-  <h1>PixelMan</h1>
-  <p class="subtitle">Pixel-perfect websites & interactive experiences</p>
+        <!-- Project Scope & Pricing -->
+        <section class="card">
+            <h2>⚖️ Project Scope &amp; Pricing</h2>
+            <h3 style="margin: 20px 0 10px; color: #22c55e;">💰 Basic Projects (200–1K Robux)</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>Portfolio / Landing / Business pages</li>
+                <li>Custom CSS styling &amp; clean UI</li>
+                <li>Static visuals (including 3D decor elements)</li>
+            </ul>
 
-  <!-- Project Scope & Pricing -->
-  <div class="card">
-    <h2>⚖️ Project Scope & Pricing</h2>
-    <h3>💰 Basic Projects (200–1K Robux)</h3>
-    <ul>
-      <li>Portfolio / Landing / Business pages</li>
-      <li>Custom CSS styling & clean UI</li>
-      <li>Static visuals (including 3D decor elements)</li>
-    </ul>
-    <h3>🚀 Advanced Projects (2.5K–3K Robux)</h3>
-    <ul>
-      <li>Interactive 3D elements</li>
-      <li>Complex JavaScript / game-like interfaces</li>
-      <li>Animations beyond basic transitions</li>
-    </ul>
-    <p>Pricing varies by scope and complexity. Static 3D visuals count as basic features.</p>
-  </div>
+            <h3 style="margin: 30px 0 10px; color: #6366f1;">🚀 Advanced Projects (2.5K–3K Robux)</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>Interactive 3D elements</li>
+                <li>Complex JavaScript / game-like interfaces</li>
+                <li>Animations beyond basic transitions</li>
+            </ul>
+            <p style="margin-top: 20px; opacity: 0.75;">Pricing varies by scope and complexity. Static 3D visuals count as basic features.</p>
+        </section>
 
-  <!-- Payment Terms -->
-  <div class="card">
-    <h2>💳 Payment Terms</h2>
-    <ul>
-      <li>50% upfront to secure your project slot</li>
-      <li>Remaining 50% due after preview and before final delivery</li>
-      <li>Full ownership with a custom domain; base code remains MIT licensed</li>
-    </ul>
-    <p>This system ensures committed projects and fair use of development time.</p>
-  </div>
+        <!-- Payment Terms -->
+        <section class="card">
+            <h2>💳 Payment Terms</h2>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>50% upfront to secure your project slot</li>
+                <li>Remaining 50% due after preview and before final delivery</li>
+                <li>Full ownership with a custom domain; base code remains MIT licensed</li>
+            </ul>
+            <p style="margin-top: 20px; opacity: 0.75;">This system ensures committed projects and fair use of development time.</p>
+        </section>
 
-  <!-- What I Offer -->
-  <div class="card">
-    <h2>✨ What I Offer</h2>
-    <ul>
-      <li>Modern, responsive designs (mobile & desktop)</li>
-      <li>Custom layouts, no templates</li>
-      <li>Advanced CSS & hover animations</li>
-      <li>3D visuals & interactive elements</li>
-      <li>Game-style UI / immersive layouts</li>
-      <li>Fast, optimized performance</li>
-      <li>Portfolio-ready final product</li>
-    </ul>
-  </div>
+        <!-- What I Offer -->
+        <section class="card">
+            <h2>✨ What I Offer</h2>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>Modern, responsive designs (mobile &amp; desktop)</li>
+                <li>Custom layouts, no templates</li>
+                <li>Advanced CSS &amp; hover animations</li>
+                <li>3D visuals &amp; interactive elements</li>
+                <li>Game-style UI / immersive layouts</li>
+                <li>Fast, optimized performance</li>
+                <li>Portfolio-ready final product</li>
+            </ul>
+        </section>
 
-  <!-- Demo Button -->
-  <div class="card" style="text-align:center;">
-    <h2>🌐 View Demo Portfolio</h2>
-    <p>Check out live examples of my work — wiki pages, landing pages, 3D simulations, and more.</p>
-    <a href="demo.html" class="button demo-button">Go to Demo Page</a>
-  </div>
+        <!-- Demo -->
+        <section class="card" style="text-align:center;">
+            <h2>🌐 View Demo Portfolio</h2>
+            <p style="margin: 15px 0 25px; opacity: 0.8;">Check out live examples of my work — wiki pages, landing pages, 3D simulations, and more.</p>
+            <a href="demo.html" class="button demo-button">Go to Demo Page</a>
+        </section>
 
-  <!-- Client Reviews -->
-  <div class="card">
-    <h2>⭐ Client Reviews</h2>
-    <p style="opacity:0.6;">"Verified" means the reviewer has worked with me directly.</p>
-    <div class="review">
-      <p>"Super clean design and fast delivery. Exactly what I wanted."</p>
-      <span>- @ClientName (Verified)</span>
+        <!-- Client Reviews -->
+        <section class="card">
+            <h2>⭐ Client Reviews</h2>
+            <p style="opacity:0.6; margin-bottom:20px;">"Verified" means the reviewer has worked with me directly.</p>
+            
+            <div class="review">
+                <p>"Super clean design and fast delivery. Exactly what I wanted."</p>
+                <span>- @ClientName (Verified)</span>
+            </div>
+            
+            <div class="review">
+                <p>"Great communication and really smooth UI work."</p>
+                <span>- @AnotherUser (Verified)</span>
+            </div>
+            
+            <p style="margin-top:25px; opacity:0.6; font-size:0.95rem;">All reviews currently are not actual users. Be the first to release a real review!</p>
+        </section>
+
+        <!-- Contact -->
+        <section class="card" style="text-align:center;">
+            <h2>📨 Get in Touch</h2>
+            <p style="margin: 20px 0 30px; opacity: 0.85;">DM me on Discord to discuss your project and start building your website today!</p>
+            <a href="https://discord.com" class="button">DM Me on Discord</a>
+        </section>
+
+        <footer>
+            © 2026 PixelMan — Built for performance
+        </footer>
     </div>
-    <div class="review">
-      <p>"Great communication and really smooth UI work."</p>
-      <span>- @AnotherUser (Verified)</span>
-    </div>
-  </div>
-
-  <!-- Contact / CTA -->
-  <div class="card" style="text-align:center;">
-    <h2>📨 Get in Touch</h2>
-    <p>DM me on Discord to discuss your project and start building your website today!</p>
-    <a href="https://discord.com" class="button">DM Me</a>
-  </div>
-
-  <div class="footer">
-    © 2026 PixelMan — Built for performance
-  </div>
-
-</div>
 </body>
 </html>
