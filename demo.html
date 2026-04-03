@@ -1,145 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>PixelMan | Demo Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-  box-sizing: border-box;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PixelMan Demo Portfolio — Live examples of websites &amp; interactive experiences built for Roblox creators.">
+    <title>PixelMan | Demo Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0f172a, #020617);
-  color: white;
-}
+        :root {
+            --tw-color-primary: #6366f1;
+            --tw-color-accent: #22c55e;
+        }
 
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 40px 20px;
-}
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
 
-h1 {
-  background: linear-gradient(90deg, #6366f1, #22c55e);
-  -webkit-background-clip: text;
-  color: transparent;
-  text-align: center;
-  margin-bottom: 10px;
-}
+        .tail-container * {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .logo-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
 
-.subtitle {
-  text-align: center;
-  opacity: 0.7;
-  margin-bottom: 40px;
-}
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+        }
 
-.demo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
+        .hero-bg {
+            background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.15) 0%, transparent 50%);
+        }
 
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 12px;
-  transition: transform 0.25s ease, background 0.25s ease;
-}
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
 
-.card:hover {
-  transform: translateY(-6px);
-  background: rgba(255,255,255,0.08);
-}
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.04);
+            box-shadow: 0 25px 50px -12px rgb(99 102 241 / 0.25);
+        }
 
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
+        .demo-frame {
+            animation: float 6s ease-in-out infinite;
+        }
 
-.card p {
-  opacity: 0.7;
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-.card a {
-  color: #22c55e;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-.card a:hover {
-  text-decoration: underline;
-}
-
-.footer {
-  text-align: center;
-  opacity: 0.5;
-  margin-top: 40px;
-  font-size: 0.9rem;
-}
-</style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
 </head>
+<body class="tail-container text-white">
 
-<body>
+    <!-- NAVBAR (exactly matches main site) -->
+    <nav class="sticky top-0 z-50 bg-[#020617]/80 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-[#6366f1] to-[#22c55e] rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-inner">🧩</div>
+                <h1 class="logo-font text-3xl tracking-[-1px] bg-gradient-to-r from-[#6366f1] to-[#22c55e] bg-clip-text text-transparent">PixelMan</h1>
+            </div>
 
-<div class="container">
-  <h1>PixelMan Demo Portfolio</h1>
-  <p class="subtitle">Explore different types of projects I've created — from simple wiki pages to interactive 3D sims.</p>
+            <!-- Menu -->
+            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                <a href="../index.html" class="nav-link text-zinc-300 hover:text-white">← Back to Home</a>
+                <a href="#demos" class="nav-link text-zinc-300 hover:text-white">All Demos</a>
+            </div>
 
-  <div class="demo-grid">
-    <!-- Wiki / Info Page -->
-    <div class="card">
-      <h3>Wiki-Style Project</h3>
-      <p>Structured content layout with clean navigation, perfect for informational sites.</p>
-      <a href="wiki-demo.html" target="_blank">View Demo</a>
+            <!-- CTA -->
+            <div class="flex items-center gap-x-4">
+                <button onclick="window.location.href='../index.html'" 
+                        class="px-6 py-3 text-sm font-semibold border border-white/30 hover:border-white/60 rounded-3xl flex items-center gap-x-2 hover:scale-105">
+                    Back to Main Site
+                </button>
+                
+                <button onclick="window.location.href='../index.html#pricing'" 
+                        class="px-8 py-3 bg-gradient-to-r from-[#6366f1] to-[#22c55e] hover:from-[#22c55e] hover:to-[#6366f1] text-white font-semibold rounded-3xl flex items-center gap-x-2 shadow-lg shadow-[#6366f1]/30 hover:shadow-xl hover:shadow-[#6366f1]/50">
+                    Start Your Project
+                    <span class="text-xl leading-none">→</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / HEADER -->
+    <section class="hero-bg min-h-[60vh] flex items-center relative overflow-hidden">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center">
+            <div class="inline-flex items-center bg-white/10 text-white text-sm font-medium px-6 h-10 rounded-3xl backdrop-blur-md border border-white/10 mb-6">
+                LIVE DEMO PORTFOLIO
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl font-semibold tracking-[-3px] leading-none logo-font mb-6">
+                Real demos.<br>
+                <span class="bg-gradient-to-r from-[#6366f1] via-[#22c55e] to-[#6366f1] bg-clip-text text-transparent">Built for Roblox creators.</span>
+            </h1>
+            
+            <p class="text-2xl text-zinc-300 max-w-2xl mx-auto">
+                Every project below was made from scratch — no templates. 
+                Click any card to open the live demo in a new tab.
+            </p>
+
+            <div class="mt-12 flex justify-center">
+                <div class="demo-frame bg-zinc-900/70 backdrop-blur-3xl border border-white/20 rounded-3xl p-4 shadow-2xl inline-flex items-center gap-3 text-sm">
+                    <span class="px-4 py-2 bg-emerald-400 text-zinc-950 font-semibold rounded-3xl">NEW</span>
+                    All demos are fully responsive and optimized for speed
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEMO GRID -->
+    <section id="demos" class="max-w-screen-2xl mx-auto px-8 py-20">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Demo 1 -->
+            <div onclick="window.open('wiki-demo.html', '_blank')" 
+                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
+                <div class="text-6xl mb-6">📖</div>
+                <h3 class="text-3xl font-semibold mb-3">Wiki-Style Project</h3>
+                <p class="text-zinc-400 flex-1">Clean, structured layout with smooth navigation. Perfect for game wikis, info hubs, or documentation.</p>
+                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
+                    <span class="text-emerald-400 font-medium">Basic • 450 Robux</span>
+                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
+                </div>
+            </div>
+
+            <!-- Demo 2 -->
+            <div onclick="window.open('https://demo-business.com', '_blank')" 
+                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
+                <div class="text-6xl mb-6">💼</div>
+                <h3 class="text-3xl font-semibold mb-3">Business Landing Page</h3>
+                <p class="text-zinc-400 flex-1">Conversion-focused design with modern animations and mobile-first layout.</p>
+                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
+                    <span class="text-emerald-400 font-medium">Basic • 750 Robux</span>
+                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
+                </div>
+            </div>
+
+            <!-- Demo 3 -->
+            <div onclick="window.open('https://demo-portfolio.com', '_blank')" 
+                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
+                <div class="text-6xl mb-6">🖼️</div>
+                <h3 class="text-3xl font-semibold mb-3">Portfolio Showcase</h3>
+                <p class="text-zinc-400 flex-1">Interactive portfolio with hover effects, smooth scrolling, and polished UI.</p>
+                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
+                    <span class="text-emerald-400 font-medium">Basic • 920 Robux</span>
+                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
+                </div>
+            </div>
+
+            <!-- Demo 4 -->
+            <div onclick="window.open('https://demo-3d.com', '_blank')" 
+                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
+                <div class="text-6xl mb-6">🌌</div>
+                <h3 class="text-3xl font-semibold mb-3">3D Simulation</h3>
+                <p class="text-zinc-400 flex-1">Static + interactive 3D elements powered by Three.js. Feels premium and immersive.</p>
+                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
+                    <span class="text-emerald-400 font-medium">Advanced • 2.8K Robux</span>
+                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
+                </div>
+            </div>
+
+            <!-- Demo 5 -->
+            <div onclick="window.open('https://demo-gameui.com', '_blank')" 
+                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
+                <div class="text-6xl mb-6">🎮</div>
+                <h3 class="text-3xl font-semibold mb-3">Game-Style UI</h3>
+                <p class="text-zinc-400 flex-1">Full HUD-style interface with menus, buttons, and Roblox-inspired immersive design.</p>
+                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
+                    <span class="text-emerald-400 font-medium">Advanced • 2.4K Robux</span>
+                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
+                </div>
+            </div>
+
+            <!-- Demo 6 -->
+            <div onclick="window.open('https://demo-blog.com', '_blank')" 
+                 class="card-hover cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col">
+                <div class="text-6xl mb-6">📰</div>
+                <h3 class="text-3xl font-semibold mb-3">Blog / Article Layout</h3>
+                <p class="text-zinc-400 flex-1">Beautiful typography, categories, and responsive content-focused design.</p>
+                <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between text-sm">
+                    <span class="text-emerald-400 font-medium">Basic • 680 Robux</span>
+                    <span class="text-white font-semibold flex items-center gap-2">View Live Demo <span class="text-xl">→</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="max-w-screen-2xl mx-auto px-8 py-20 text-center bg-gradient-to-r from-[#6366f1]/10 to-[#22c55e]/10 rounded-t-[4rem]">
+        <h2 class="text-5xl font-semibold mb-6">Seen something you love?</h2>
+        <p class="text-2xl text-zinc-300 mb-10">Let’s build your own version — faster and exactly how you want it.</p>
+        <button onclick="window.location.href='../index.html#pricing'" 
+                class="px-12 py-7 text-2xl font-semibold bg-white text-zinc-950 rounded-3xl inline-flex items-center gap-x-4 hover:scale-110">
+            START YOUR PROJECT
+            <span class="text-4xl">🧩</span>
+        </button>
     </div>
 
-    <!-- Business / Landing Page -->
-    <div class="card">
-      <h3>Business Landing Page</h3>
-      <p>Modern layout for businesses, optimized for conversion and mobile responsive.</p>
-      <a href="https://demo-business.com" target="_blank">View Demo</a>
-    </div>
+    <!-- FOOTER (matches main site) -->
+    <footer class="bg-[#020617] border-t border-white/10 py-12">
+        <div class="max-w-screen-2xl mx-auto px-8 text-zinc-400 text-sm flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>© 2026 PixelMan — Demo Portfolio</div>
+            <div class="flex gap-6">
+                <a href="../index.html" class="hover:text-white">Back to Main Site</a>
+            </div>
+            <div class="text-xs">All demos built from scratch • No templates used</div>
+        </div>
+    </footer>
 
-    <!-- Portfolio / Showcase -->
-    <div class="card">
-      <h3>Portfolio Showcase</h3>
-      <p>Interactive portfolio layout with hover animations and clean UI for creative projects.</p>
-      <a href="https://demo-portfolio.com" target="_blank">View Demo</a>
-    </div>
+    <script>
+        // Simple scroll animation for cards
+        function handleScrollAnimations() {
+            const cards = document.querySelectorAll('.card-hover')
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1'
+                        entry.target.style.transform = 'translateY(0)'
+                    }
+                })
+            }, { threshold: 0.15 })
+            
+            cards.forEach(card => {
+                card.style.opacity = '0'
+                card.style.transform = 'translateY(30px)'
+                observer.observe(card)
+            })
+        }
 
-    <!-- 3D / Simulation -->
-    <div class="card">
-      <h3>3D Simulation</h3>
-      <p>Static or interactive 3D elements integrated into the page to showcase products or simulations.</p>
-      <a href="https://demo-3d.com" target="_blank">View Demo</a>
-    </div>
-
-    <!-- Game-Style Interface -->
-    <div class="card">
-      <h3>Game-Style UI</h3>
-      <p>HUD-like interface with menus, buttons, and immersive layouts for interactive experiences.</p>
-      <a href="https://demo-gameui.com" target="_blank">View Demo</a>
-    </div>
-
-    <!-- Blog / Article Layout -->
-    <div class="card">
-      <h3>Blog / Article</h3>
-      <p>Content-focused design with readability, categories, and responsive typography.</p>
-      <a href="https://demo-blog.com" target="_blank">View Demo</a>
-    </div>
-  </div>
-
-  <div class="footer">
-    © 2026 PixelMan — Demo Portfolio
-  </div>
-</div>
-
+        window.onload = () => {
+            handleScrollAnimations()
+            console.log('%c🚀 PixelMan Demo Portfolio loaded — matching the main site perfectly!', 'color:#22c55e; font-family:monospace;')
+        }
+    </script>
 </body>
 </html>
