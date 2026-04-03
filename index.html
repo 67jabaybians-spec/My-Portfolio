@@ -94,6 +94,20 @@ button:hover {
   margin-top: 40px;
   font-size: 0.9rem;
 }
+
+.review {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.review span {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
 </style>
 </head>
 
@@ -140,6 +154,25 @@ button:hover {
     </p>
   </div>
 
+    <div class="card">
+      <h2>⚠️ Cancellation & Refund Policy</h2>
+      <ul>
+        <li>The initial 50% payment acts as a non-refundable deposit to secure your project slot</li>
+        <li>If the project is canceled by the client, the deposit will not be refunded</li>
+        <li>If significant work has already been completed, additional payment may be required based on progress</li>
+        <li>If a project cancellation impacts other scheduled client work, the full deposit may be retained as compensation for reserved development time</li>
+        <li>Refund exceptions may be considered depending on the stage of development</li>
+      </ul>
+    
+      <p style="opacity:0.7; margin-top:10px;">
+        Exceptions may be considered in reasonable circumstances, but cancellations without valid cause may result in loss of the deposit.
+      </p>
+    
+      <p style="opacity:0.7;">
+        This policy ensures that time is reserved for committed projects and prevents disruption to other clients.
+      </p>
+    </div>
+
   <div class="card">
     <h2>💳 Payment Terms</h2>
     <ul>
@@ -148,8 +181,14 @@ button:hover {
       <li>A preview of the project will be provided before final payment</li>
       <li>Final files and full access are only delivered after full payment</li>
     </ul>
+  
+    <p style="opacity:0.7; margin-top:10px;">
+      The upfront payment secures your project slot and confirms commitment before development begins.
+      This prevents time being reserved for projects that may be canceled and ensures fair use of development time.
+    </p>
+  
     <p style="opacity:0.7;">
-      This ensures both sides are protected and the project is completed fairly.
+      This system protects both sides — you get a preview before final payment, and I ensure time is dedicated to active projects.
     </p>
   </div>
 
@@ -172,6 +211,57 @@ button:hover {
     <p>
       Clients who purchase a custom domain and hosting receive full ownership of their final website files and content.
       The underlying base code may be reused under the MIT License for learning and development.
+    </p>
+  </div>
+
+  <button onclick="openTerms()">Start Project Request</button>
+
+  <div id="termsPopup" class="popup">
+    <div class="popup-content">
+      <h2>Terms Agreement</h2>
+  
+      <p>
+        By continuing, you agree to the project terms including payment,
+        cancellation policy, and project scope.
+      </p>
+  
+      <ul>
+        <li>50% upfront payment is required</li>
+        <li>Deposits are non-refundable</li>
+        <li>Final delivery occurs after full payment</li>
+      </ul>
+  
+      <label>
+        <input type="checkbox" id="agreeBox">
+        I agree to the terms
+      </label>
+  
+      <br><br>
+  
+      <button onclick="continueToForm()">Continue</button>
+      <button onclick="closeTerms()">Cancel</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>⭐ Client Reviews</h2>
+
+    <p style="opacity:0.6;">
+      "Verified" means the reviewer has worked with me directly and has been confirmed.
+    </p>
+  
+    <div class="review">
+      <p>"Super clean design and fast delivery. Exactly what I wanted."</p>
+      <span>- @ClientName (Verified)</span>
+    </div>
+  
+    <div class="review">
+      <p>"Great communication and really smooth UI work."</p>
+      <span>- @AnotherUser (Verified)</span>
+    </div>
+  
+    <p style="opacity:0.6; margin-top:15px;">
+      All reviews are from verified clients.
     </p>
   </div>
 
