@@ -2,114 +2,149 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Dev Portfolio</title>
+<title>PixelMan | Web Developer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0f172a;
+  background: linear-gradient(135deg, #0f172a, #020617);
   color: white;
 }
 
-header {
-  text-align: center;
-  padding: 60px 20px;
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
 h1 {
-  font-size: 3rem;
+  background: linear-gradient(90deg, #6366f1, #22c55e);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
+.subtitle {
+  text-align: center;
+  opacity: 0.7;
+  margin-bottom: 40px;
 }
 
 .card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  background: #334155;
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.08);
 }
 
-iframe {
-  width: 100%;
-  height: 400px;
+h2 {
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+.price {
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.cta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+button {
+  background: #6366f1;
   border: none;
-  border-radius: 10px;
-  margin-top: 20px;
+  padding: 15px 30px;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+  background: #4f46e5;
+  transform: scale(1.05);
+}
+
+.footer {
+  text-align: center;
+  opacity: 0.5;
+  margin-top: 40px;
+  font-size: 0.9rem;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>My Portfolio</h1>
-  <p>I build websites, games, and interactive experiences</p>
-</header>
-
 <div class="container">
 
-  <div class="card" onclick="loadDemo('business')">
-    <h2>Business Website</h2>
-    <p>Modern company layout</p>
+  <h1>PixelMan</h1>
+  <p class="subtitle">Pixel-perfect websites & interactive experiences</p>
+
+  <div class="card">
+    <h2>💰 Pricing</h2>
+    <ul>
+      <li>Portfolio / Website — <span class="price">200–1K Robux</span></li>
+      <li>Advanced Projects (3D + Custom CSS) — <span class="price">2.5K–3K Robux</span></li>
+    </ul>
+    <p style="opacity:0.7;">Pricing depends on complexity and features.</p>
   </div>
 
-  <div class="card" onclick="loadDemo('dashboard')">
-    <h2>Dashboard UI</h2>
-    <p>Admin panel concept</p>
+  <div class="card">
+    <h2>✨ What I Offer</h2>
+    <ul>
+      <li>Clean, modern website design</li>
+      <li>Custom CSS styling</li>
+      <li>3D art integration</li>
+      <li>Portfolio-ready polished work</li>
+    </ul>
   </div>
 
-  <div class="card" onclick="loadDemo('game')">
-    <h2>Game UI</h2>
-    <p>HUD + menu system</p>
+  <div class="card">
+    <h2>📌 Notes</h2>
+    <ul>
+      <li>Flexible pricing based on scope</li>
+      <li>Clear communication during the project</li>
+      <li>Built to match your vision</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <button onclick="contact()">DM Me to Start</button>
+  </div>
+
+  <div class="footer">
+    © 2026 PixelMan — Built for performance
   </div>
 
 </div>
 
-<div id="viewer"></div>
-
 <script>
-function loadDemo(type) {
-  let html = "";
-
-  if (type === "business") {
-    html = `
-      <h2>Business Demo</h2>
-      <p>We build amazing things</p>
-      <button>Contact Us</button>
-    `;
-  }
-
-  if (type === "dashboard") {
-    html = `
-      <h2>Dashboard</h2>
-      <div style="display:flex; gap:10px;">
-        <div style="background:#0ea5e9; padding:20px;">Users: 120</div>
-        <div style="background:#22c55e; padding:20px;">Sales: 430</div>
-      </div>
-    `;
-  }
-
-  if (type === "game") {
-    html = `
-      <h2>Game UI</h2>
-      <p>Health: ███████░░</p>
-      <button>Start Game</button>
-    `;
-  }
-
-  document.getElementById("viewer").innerHTML = html;
+function contact() {
+  window.location.href = "https://discord.com"; // replace with your Discord link
 }
 </script>
 
