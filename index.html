@@ -1,283 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PixelMan - Pixel-perfect websites & interactive experiences">
-    <title>PixelMan | Web Developer</title>
-    <style>
-        /* CSS Variables */
-        :root {
-            --primary: #6366f1;
-            --accent: #22c55e;
-            --bg: #0f172a;
-            --card-bg: rgba(255,255,255,0.05);
-        }
+<meta charset="UTF-8">
+<title>PixelMan | Web Developer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-        body {
-            font-family: "Inter", Arial, sans-serif;
-            background: linear-gradient(135deg, #0f172a, #020617);
-            color: #ffffff;
-            line-height: 1.6;
-        }
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: white;
+  line-height: 1.6;
+  padding: 40px 20px;
+}
 
-        .container {
-            max-width: 960px;
-            margin: auto;
-            padding: 50px 20px;
-        }
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #6366f1, #22c55e);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
 
-        /* Header */
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
 
-        h1 {
-            font-size: 3.5rem;
-            background: linear-gradient(90deg, #6366f1, #22c55e);
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 8px;
-        }
+h3 {
+  font-size: 1.3rem;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
 
-        .subtitle {
-            font-size: 1.25rem;
-            opacity: 0.75;
-        }
+p, li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
 
-        /* Cards */
-        .card {
-            background: var(--card-bg);
-            padding: 32px;
-            border-radius: 20px;
-            margin-bottom: 32px;
-            backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
-        }
+ul {
+  list-style: disc;
+  padding-left: 20px;
+}
 
-        .card:hover {
-            transform: translateY(-8px);
-            background: rgba(255,255,255,0.08);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-        }
+/* Bento Grid Layout */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-        .card h2 {
-            font-size: 1.75rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+section.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 25px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
 
-        /* Reviews */
-        .review {
-            background: rgba(255,255,255,0.03);
-            padding: 24px;
-            border-radius: 16px;
-            margin: 18px 0;
-            border-left: 5px solid var(--accent);
-            font-style: italic;
-        }
+section.card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.08);
+}
 
-        .review span {
-            display: block;
-            margin-top: 12px;
-            opacity: 0.7;
-            font-style: normal;
-            font-size: 0.95rem;
-        }
+button {
+  background: #6366f1;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
 
-        /* Buttons */
-        .button {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 14px;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            cursor: pointer;
-        }
+button:hover {
+  background: #4f46e5;
+  transform: scale(1.05);
+}
 
-        .button:hover {
-            background: #4f46e5;
-            transform: scale(1.06);
-        }
+.footer {
+  text-align: center;
+  opacity: 0.5;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  grid-column: 1 / -1;
+}
 
-        .demo-button {
-            background: var(--accent);
-        }
+.review {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
 
-        .demo-button:hover {
-            background: #16a34a;
-        }
+.review span {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
 
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 70px;
-            opacity: 0.5;
-            font-size: 0.95rem;
-        }
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.85);
+  justify-content:center;
+  align-items:center;
+  overflow:auto;
+  z-index:1000;
+}
 
-        /* Small responsive tweaks */
-        @media (max-width: 640px) {
-            h1 { font-size: 2.8rem; }
-            .card { padding: 24px; }
-        }
-    </style>
+.popup section {
+  background:#020617;
+  color:white;
+  padding:30px;
+  border-radius:14px;
+  max-width:600px;
+  max-height:90%;
+  overflow-y:auto;
+}
+
+.popup label {
+  display:block;
+  margin-top:15px;
+}
+</style>
 </head>
 <body>
-    <div class="container">
 
-        <!-- Hero -->
-        <header>
-            <h1>PixelMan</h1>
-            <p class="subtitle">Pixel-perfect websites &amp; interactive experiences</p>
-        </header>
+<header style="text-align:center; margin-bottom:40px;">
+  <h1>PixelMan</h1>
+  <p style="opacity:0.7;">Pixel-perfect websites & interactive experiences</p>
+</header>
 
-        <!-- Start Project Section -->
-        <section class="card" style="text-align:center; margin:30px 0;">
-          <button class="button" onclick="openTerms()">Start Project</button>
-        </section>
-        
-        <!-- Terms Popup Section -->
-        <section id="termsPopup" class="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); justify-content:center; align-items:center; overflow:auto; z-index:1000;">
-          <section style="background:#020617; color:white; padding:30px; border-radius:14px; max-width:600px; max-height:90%; overflow-y:auto;">
-            <h2>📄 Project Terms & Agreement</h2>
-        
-            <p>Welcome! Before starting, please read these terms carefully. They cover payment, ownership, cancellation, and project scope.</p>
-        
-            <ul style="margin-left:20px; line-height:1.6;">
-              <li><strong>50% Upfront Payment:</strong> Required to reserve your project slot. Protects your time and mine.</li>
-              <li><strong>Remaining 50%:</strong> Due after preview and before final delivery.</li>
-              <li><strong>Ownership:</strong> Custom domain purchases get full ownership. Base code remains MIT licensed.</li>
-              <li><strong>Refund / Cancellation:</strong> Deposits are non-refundable unless reasonable cause is provided. Halting development after significant work may require full compensation.</li>
-              <li><strong>Scope:</strong> Any work outside agreed project specifications is considered additional and may require extra payment.</li>
-            </ul>
-        
-            <p style="opacity:0.7;">By checking the box below, you confirm that you have read, understood, and agree to these terms before submitting a project request.</p>
-        
-            <label>
-              <input type="checkbox" id="agreeBox"> I have read and agree to the terms
-            </label>
-        
-            <br><br>
-        
-            <button class="button" onclick="continueToForm()">Continue to Project Request</button>
-            <button class="button" style="background:#ff4444; margin-left:10px;" onclick="closeTerms()">Cancel</button>
-          </section>
-        </section>
+<div class="container">
 
-        <!-- Project Scope & Pricing -->
-        <section class="card">
-            <h2>⚖️ Project Scope &amp; Pricing</h2>
-            <h3 style="margin: 20px 0 10px; color: #22c55e;">💰 Basic Projects (200–1K Robux)</h3>
-            <ul style="margin-left: 20px; line-height: 1.8;">
-                <li>Portfolio / Landing / Business pages</li>
-                <li>Custom CSS styling &amp; clean UI</li>
-                <li>Static visuals (including 3D decor elements)</li>
-            </ul>
+  <!-- Project Scope & Pricing -->
+  <section class="card">
+    <h2>⚖️ Project Scope & Pricing</h2>
+    <h3>💰 Basic Projects (200–1K Robux)</h3>
+    <ul>
+      <li>Portfolio websites</li>
+      <li>Business-style websites</li>
+      <li>Landing pages</li>
+      <li>Clean UI with custom CSS</li>
+      <li>Static visuals (including decorative 3D elements)</li>
+    </ul>
+    <p style="opacity:0.7;">Static 3D elements are treated like images and do NOT count as advanced features.</p>
 
-            <h3 style="margin: 30px 0 10px; color: #6366f1;">🚀 Advanced Projects (2.5K–3K Robux)</h3>
-            <ul style="margin-left: 20px; line-height: 1.8;">
-                <li>Interactive 3D elements</li>
-                <li>Complex JavaScript / game-like interfaces</li>
-                <li>Animations beyond basic transitions</li>
-            </ul>
-            <p style="margin-top: 20px; opacity: 0.75;">Pricing varies by scope and complexity. Static 3D visuals count as basic features.</p>
-        </section>
+    <h3>🚀 Advanced Projects (2.5K–3K Robux)</h3>
+    <ul>
+      <li>Interactive 3D elements</li>
+      <li>Animations beyond basic UI transitions</li>
+      <li>Complex JavaScript systems</li>
+      <li>Game-like interfaces or custom logic</li>
+      <li>Highly customized or large-scale designs</li>
+    </ul>
+    <p style="opacity:0.7;">Any feature outside agreed project scope is considered additional and may require extra payment.</p>
+  </section>
 
-        <!-- Payment Terms -->
-        <section class="card">
-          <h2>💳 Payment Terms & Project Commitment</h2>
-          <ul style="margin-left: 20px; line-height: 1.8;">
-            <li><strong>50% upfront payment:</strong> Required to reserve your project slot. This deposit ensures your commitment and prevents time from being reserved for projects that may be abandoned.</li>
-            <li><strong>Remaining 50%:</strong> Due after you review the project preview, and before final delivery of files and full access.</li>
-            <li><strong>Ownership:</strong> Clients who purchase a custom domain receive full ownership of their website content and final files. Base code remains MIT licensed for learning or inspiration purposes.</li>
-            <li><strong>Refund & Cancellation Policy:</strong> The upfront deposit is generally non-refundable. Exceptions may be considered only under reasonable circumstances. If a project is canceled after significant work, additional compensation may apply for the time and work completed.</li>
-          </ul>
-          <p style="margin-top: 20px; opacity: 0.75;">
-            This system protects both sides — you get a preview before full payment, and I dedicate my time only to committed projects. It ensures fairness, prevents wasted development effort, and maintains project integrity.
-          </p>
-        </section>
+  <!-- Payment Terms -->
+  <section class="card">
+    <h2>💳 Payment Terms & Project Commitment</h2>
+    <ul>
+      <li><strong>50% upfront:</strong> Reserves your project slot and confirms commitment.</li>
+      <li><strong>Remaining 50%:</strong> Due after preview, before final delivery.</li>
+      <li><strong>Ownership:</strong> Custom domain = full ownership. Base code remains MIT licensed.</li>
+      <li><strong>Refund / Cancellation:</strong> Deposits non-refundable unless reasonable cause is provided.</li>
+    </ul>
+    <p style="opacity:0.75;">This system protects both sides — you preview before full payment, and time is dedicated to committed projects.</p>
+  </section>
 
-        <!-- What I Offer -->
-        <section class="card">
-            <h2>✨ What I Offer</h2>
-            <ul style="margin-left: 20px; line-height: 1.8;">
-                <li>Modern, responsive designs (mobile &amp; desktop)</li>
-                <li>Custom layouts, no templates</li>
-                <li>Advanced CSS &amp; hover animations</li>
-                <li>3D visuals &amp; interactive elements</li>
-                <li>Game-style UI / immersive layouts</li>
-                <li>Fast, optimized performance</li>
-                <li>Portfolio-ready final product</li>
-            </ul>
-        </section>
+  <!-- What I Offer -->
+  <section class="card">
+    <h2>✨ What I Offer</h2>
+    <ul>
+      <li>Modern responsive website design</li>
+      <li>Custom-built layouts, no templates</li>
+      <li>Advanced CSS styling & animations</li>
+      <li>Interactive elements (menus, buttons, UI systems)</li>
+      <li>3D visuals (static or interactive)</li>
+      <li>Game-style interfaces & immersive layouts</li>
+      <li>Fast-loading & optimized performance</li>
+      <li>Portfolio-ready polished final product</li>
+    </ul>
+  </section>
 
-        <!-- Demo -->
-        <section class="card" style="text-align:center;">
-            <h2>🌐 View Demo Portfolio</h2>
-            <p style="margin: 15px 0 25px; opacity: 0.8;">Check out live examples of my work — wiki pages, landing pages, 3D simulations, and more.</p>
-            <a href="demo.html" class="button demo-button">Go to Demo Page</a>
-        </section>
+  <!-- Ownership -->
+  <section class="card">
+    <h2>⚖️ Ownership</h2>
+    <p>Clients who purchase a custom domain receive full ownership of their website content and files. Base code remains MIT licensed for inspiration and learning purposes.</p>
+  </section>
 
-        <!-- Client Reviews -->
-        <section class="card">
-            <h2>⭐ Client Reviews</h2>
-            <p style="opacity:0.6; margin-bottom:20px;">"Verified" means the reviewer has worked with me directly.</p>
-            
-            <div class="review">
-                <p>"Super clean design and fast delivery. Exactly what I wanted."</p>
-                <span>- @ClientName (Verified)</span>
-            </div>
-            
-            <div class="review">
-                <p>"Great communication and really smooth UI work."</p>
-                <span>- @AnotherUser (Verified)</span>
-            </div>
-            
-            <p style="margin-top:25px; opacity:0.6; font-size:0.95rem;">All reviews currently are not actual users. Be the first to release a real review!</p>
-        </section>
+  <!-- Demo Button -->
+  <section class="card" style="text-align:center;">
+    <button onclick="window.location.href='demo.html'">View Demo Sites</button>
+  </section>
 
-        <!-- Contact -->
-        <section class="card" style="text-align:center;">
-            <h2>📨 Get in Touch</h2>
-            <p style="margin: 20px 0 30px; opacity: 0.85;">DM me on Discord to discuss your project and start building your website today!</p>
-            <a href="https://discord.com" class="button">DM Me on Discord</a>
-        </section>
+  <!-- Client Reviews -->
+  <section class="card">
+    <h2>⭐ Client Reviews</h2>
+    <p style="opacity:0.6;">"Verified" means the reviewer has worked with me directly.</p>
 
-        <footer>
-            © 2026 PixelMan — Built for performance
-        </footer>
+    <div class="review">
+      <p>"Super clean design and fast delivery. Exactly what I wanted."</p>
+      <span>- @ClientName (Verified)</span>
     </div>
 
-    <script>
-        function openTerms() {
-          document.getElementById("termsPopup").style.display = "flex";
-        }
-        
-        function closeTerms() {
-          document.getElementById("termsPopup").style.display = "none";
-        }
-        
-        function continueToForm() {
-          const agreed = document.getElementById("agreeBox").checked;
-          if (!agreed) {
-            alert("You must agree to the terms before continuing.");
-            return;
-          }
-          window.location.href = "https://forms.google.com"; // replace with your form
-        }
-    </script>
+    <div class="review">
+      <p>"Great communication and really smooth UI work."</p>
+      <span>- @AnotherUser (Verified)</span>
+    </div>
+
+    <p style="opacity:0.6; margin-top:15px;">All reviews are from verified clients.</p>
+  </section>
+
+  <!-- Notes -->
+  <section class="card">
+    <h2>📌 Notes</h2>
+    <ul>
+      <li>Flexible pricing based on scope</li>
+      <li>Clear communication throughout the project</li>
+      <li>Built to match your vision</li>
+    </ul>
+  </section>
+
+  <div class="footer">
+    © 2026 PixelMan — Built for performance
+  </div>
+
+</div>
+
+<!-- Terms Popup -->
+<section id="termsPopup" class="popup">
+  <section>
+    <h2>📄 Project Terms & Agreement</h2>
+    <p>Before starting, please read these terms carefully. They cover payment, ownership, cancellation, and project scope.</p>
+
+    <ul>
+      <li><strong>50% Upfront Payment:</strong> Required to reserve your project slot.</li>
+      <li><strong>Remaining 50%:</strong> Due after preview and before final delivery.</li>
+      <li><strong>Ownership:</strong> Custom domain = full ownership. Base code remains MIT licensed.</li>
+      <li><strong>Refund / Cancellation:</strong> Deposits non-refundable unless reasonable cause is provided.</li>
+      <li><strong>Scope:</strong> Any work outside agreed project specifications is additional and may require extra payment.</li>
+    </ul>
+
+    <label>
+      <input type="checkbox" id="agreeBox"> I have read and agree to the terms
+    </label>
+    <br><br>
+    <button onclick="continueToForm()">Continue to Project Request</button>
+    <button style="background:#ff4444; margin-left:10px;" onclick="closeTerms()">Cancel</button>
+  </section>
+</section>
+
+<script>
+function openTerms() { document.getElementById("termsPopup").style.display = "flex"; }
+function closeTerms() { document.getElementById("termsPopup").style.display = "none"; }
+function continueToForm() {
+  const agreed = document.getElementById("agreeBox").checked;
+  if(!agreed){ alert("You must agree to the terms before continuing."); return; }
+  window.location.href = "https://forms.google.com"; // replace with your form
+}
+</script>
+
 </body>
 </html>
