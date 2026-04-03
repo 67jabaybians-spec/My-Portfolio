@@ -107,6 +107,16 @@ button:hover {
   max-width: 400px;
 }
 
+.terms-box {
+  max-height: 220px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
 /* REVIEWS */
 .review {
   background: rgba(255,255,255,0.05);
@@ -210,18 +220,30 @@ button:hover {
     </p>
   </div>
 
+  <div class="card">
+    <h2>🔗 Endorsements & Anchors</h2>
+    <p style="opacity:0.7;">
+      Trusted members in the dev community who are aware of my work:
+    </p>
+  
+    <div class="review">
+      <p>"PixelMan has delivered several polished projects for me. His work is clean, fast, and reliable."</p>
+      <span>- Developer #### (Community Verified)</span>
+    </div>
+  
+    <p style="opacity:0.6; margin-top:10px;">
+      Note: This is a reference to past collaboration. Please do not contact them directly regarding your project.
+    </p>
+    <p>Not an actualy review ( yet )</p>
+  </div>
+
   <!-- REVIEWS -->
   <div class="card">
     <h2>⭐ Client Reviews</h2>
 
     <div class="review">
-      <p>"Super clean design and fast delivery."</p>
-      <span>- @ClientName (Verified)</span>
-    </div>
-
-    <div class="review">
-      <p>"Great communication and smooth UI."</p>
-      <span>- @AnotherUser (Verified)</span>
+      <p>No reviews yet. Be the first!</p>
+      <span>- @Username (Verified)</span>
     </div>
 
     <p style="opacity:0.6;">All reviews are verified clients.</p>
@@ -236,19 +258,40 @@ button:hover {
   <!-- POPUP -->
   <div id="termsPopup" class="popup">
     <div class="popup-content">
+  
       <h2>Terms Agreement</h2>
-
-      <p>By continuing, you agree to the project terms.</p>
-
+  
+      <div id="termsBox" class="terms-box">
+  
+        <p><strong>💳 Payment Terms</strong></p>
+        <p>• 50% upfront is required to begin the project.</p>
+        <p>• Remaining 50% is due after preview and before final delivery.</p>
+  
+        <p><strong>⚠️ Cancellation Policy</strong></p>
+        <p>• The upfront payment is non-refundable.</p>
+        <p>• Additional charges may apply depending on progress.</p>
+  
+        <p><strong>⚖️ Project Scope</strong></p>
+        <p>• Features outside the agreed scope may increase pricing.</p>
+  
+        <p><strong>🧾 Ownership</strong></p>
+        <p>• Clients own final website content.</p>
+        <p>• Base code may be reused under MIT License.</p>
+  
+        <p style="margin-top:30px;"><strong>End of Terms</strong></p>
+  
+      </div>
+  
       <label>
-        <input type="checkbox" id="agreeBox">
-        I agree
+        <input type="checkbox" id="agreeBox" disabled>
+        I have read and agree to the terms
       </label>
-
+  
       <br><br>
-
-      <button onclick="continueToForm()">Continue</button>
+  
+      <button onclick="continueToForm()">Agree & Continue</button>
       <button onclick="closeTerms()">Cancel</button>
+  
     </div>
   </div>
 
@@ -265,7 +308,26 @@ function contact() {
 }
 
 function openTerms() {
-  document.getElementById("termsPopup").style.display = "flex";
+  const popup = document.getElementById("termsPopup");
+  const termsBox = document.getElementById("termsBox");
+  const agreeBox = document.getElementById("agreeBox");
+
+  popup.style.display = "flex";
+
+  // Reset state
+  agreeBox.disabled = true;
+  agreeBox.checked = false;
+  termsBox.scrollTop = 0;
+
+  // Unlock checkbox when scrolled to bottom
+  function unlock() {
+    if (termsBox.scrollTop + termsBox.clientHeight >= termsBox.scrollHeight) {
+      agreeBox.disabled = false;
+      termsBox.removeEventListener("scroll", unlock);
+    }
+  }
+
+  termsBox.addEventListener("scroll", unlock);
 }
 
 function closeTerms() {
@@ -273,12 +335,14 @@ function closeTerms() {
 }
 
 function continueToForm() {
-  if (!document.getElementById("agreeBox").checked) {
-    alert("You must agree to the terms first.");
+  const agreed = document.getElementById("agreeBox").checked;
+
+  if (!agreed) {
+    alert("You must scroll and agree to the terms first.");
     return;
   }
 
-  window.location.href = "https://forms.google.com";
+  window.location.href = "https://forms.google.com"; // replace with your form
 }
 </script>
 
