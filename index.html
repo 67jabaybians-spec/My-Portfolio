@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -23,7 +21,10 @@ body {
   padding: 40px 20px;
 }
 
+/* HEADER */
 h1 {
+  text-align: center;
+  font-size: 3rem;
   background: linear-gradient(90deg, #6366f1, #22c55e);
   -webkit-background-clip: text;
   color: transparent;
@@ -35,38 +36,36 @@ h1 {
   margin-bottom: 40px;
 }
 
+/* CARDS */
 .card {
   background: rgba(255,255,255,0.05);
   padding: 25px;
   border-radius: 14px;
   margin-bottom: 20px;
   backdrop-filter: blur(8px);
-  transition: transform 0.25s ease, background 0.25s ease;
+  transition: 0.25s;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   background: rgba(255,255,255,0.08);
 }
 
-h2 {
-  margin-bottom: 15px;
-}
+h2 { margin-bottom: 15px; }
 
 ul {
   list-style: none;
   padding: 0;
 }
 
-li {
-  margin: 10px 0;
-}
+li { margin: 10px 0; }
 
 .price {
   color: #22c55e;
   font-weight: bold;
 }
 
+/* BUTTONS */
 .cta {
   text-align: center;
   margin-top: 30px;
@@ -75,12 +74,12 @@ li {
 button {
   background: #6366f1;
   border: none;
-  padding: 15px 30px;
-  border-radius: 12px;
+  padding: 12px 25px;
+  border-radius: 10px;
   color: white;
-  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  margin: 5px;
+  transition: 0.2s;
 }
 
 button:hover {
@@ -88,13 +87,27 @@ button:hover {
   transform: scale(1.05);
 }
 
-.footer {
-  text-align: center;
-  opacity: 0.5;
-  margin-top: 40px;
-  font-size: 0.9rem;
+/* POPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
+.popup-content {
+  background: #020617;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 400px;
+}
+
+/* REVIEWS */
 .review {
   background: rgba(255,255,255,0.05);
   padding: 15px;
@@ -105,8 +118,15 @@ button:hover {
 .review span {
   display: block;
   margin-top: 8px;
-  font-size: 0.9rem;
   opacity: 0.7;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  opacity: 0.5;
+  margin-top: 40px;
+  font-size: 0.9rem;
 }
 </style>
 </head>
@@ -115,178 +135,150 @@ button:hover {
 
 <div class="container">
 
+  <!-- HEADER -->
   <h1>PixelMan</h1>
   <p class="subtitle">Pixel-perfect websites & interactive experiences</p>
 
-  <div class="card">
-    <h2>⚖️ Project Scope & Pricing</h2>
-  
-    <h3>💰 Basic Projects (200–1K Robux)</h3>
-    <ul>
-      <li>Portfolio websites</li>
-      <li>Business-style websites</li>
-      <li>Landing pages</li>
-      <li>Clean UI with custom CSS</li>
-      <li>Static visuals (including 3D elements used as decoration)</li>
-    </ul>
-    <p style="opacity:0.7;">
-      Static 3D elements (non-moving, decorative only) are treated the same as images and do NOT count as advanced features.
-    </p>
-  
-    <h3>🚀 Advanced Projects (2.5K–3K Robux)</h3>
-    <ul>
-      <li>Interactive 3D elements</li>
-      <li>Animations beyond basic UI transitions</li>
-      <li>Complex JavaScript systems</li>
-      <li>Game-like interfaces or custom logic</li>
-      <li>Highly customized or large-scale designs</li>
-    </ul>
-  
-    <h3>📌 Additional Notes</h3>
-    <ul>
-      <li>Pricing may vary depending on complexity</li>
-      <li>Scope is discussed and agreed upon before development</li>
-      <li>Extra features may increase pricing</li>
-    </ul>
-
-    <p style="opacity:0.7;">
-      Any feature not listed in the agreed project scope may be considered an additional request.
-    </p>
-  </div>
-
-    <div class="card">
-      <h2>⚠️ Cancellation & Refund Policy</h2>
-      <ul>
-        <li>The initial 50% payment acts as a non-refundable deposit to secure your project slot</li>
-        <li>If the project is canceled by the client, the deposit will not be refunded</li>
-        <li>If significant work has already been completed, additional payment may be required based on progress</li>
-        <li>If a project cancellation impacts other scheduled client work, the full deposit may be retained as compensation for reserved development time</li>
-        <li>Refund exceptions may be considered depending on the stage of development</li>
-      </ul>
-    
-      <p style="opacity:0.7; margin-top:10px;">
-        Exceptions may be considered in reasonable circumstances, but cancellations without valid cause may result in loss of the deposit.
-      </p>
-    
-      <p style="opacity:0.7;">
-        This policy ensures that time is reserved for committed projects and prevents disruption to other clients.
-      </p>
-    </div>
-
-  <div class="card">
-    <h2>💳 Payment Terms</h2>
-    <ul>
-      <li>50% upfront payment is required to begin the project</li>
-      <li>Remaining 50% is due after preview and before final delivery</li>
-      <li>A preview of the project will be provided before final payment</li>
-      <li>Final files and full access are only delivered after full payment</li>
-    </ul>
-  
-    <p style="opacity:0.7; margin-top:10px;">
-      The upfront payment secures your project slot and confirms commitment before development begins.
-      This prevents time being reserved for projects that may be canceled and ensures fair use of development time.
-    </p>
-  
-    <p style="opacity:0.7;">
-      This system protects both sides — you get a preview before final payment, and I ensure time is dedicated to active projects.
-    </p>
-  </div>
-
+  <!-- WHAT YOU OFFER -->
   <div class="card">
     <h2>✨ What I Offer</h2>
     <ul>
-      <li>Modern, responsive website design (works on mobile & desktop)</li>
-      <li>Custom-built layouts — no templates or copy-paste designs</li>
-      <li>Advanced CSS styling (animations, hover effects, clean UI)</li>
-      <li>Interactive elements (menus, buttons, UI systems)</li>
-      <li>3D visuals (static or interactive depending on project tier)</li>
-      <li>Game-style interfaces (HUDs, menus, immersive layouts)</li>
-      <li>Fast-loading, optimized performance</li>
-      <li>Portfolio-ready, polished final product</li>
+      <li>Modern, responsive website design</li>
+      <li>Custom-built layouts (no templates)</li>
+      <li>Advanced CSS & animations</li>
+      <li>Interactive UI systems</li>
+      <li>3D visuals (static or interactive)</li>
+      <li>Game-style interfaces</li>
+      <li>Optimized performance</li>
+      <li>Portfolio-ready final product</li>
     </ul>
   </div>
 
+  <!-- PRICING -->
   <div class="card">
-    <h2>⚖️ Ownership</h2>
-    <p>
-      Clients who purchase a custom domain and hosting receive full ownership of their final website files and content.
-      The underlying base code may be reused under the MIT License for learning and development.
+    <h2>⚖️ Project Scope & Pricing</h2>
+
+    <h3>💰 Basic (200–1K Robux)</h3>
+    <ul>
+      <li>Portfolio / business / landing pages</li>
+      <li>Custom CSS UI</li>
+      <li>Static visuals (including 3D decor)</li>
+    </ul>
+
+    <h3>🚀 Advanced (2.5K–3K Robux)</h3>
+    <ul>
+      <li>Interactive 3D</li>
+      <li>Complex animations</li>
+      <li>Custom systems / game-like UI</li>
+    </ul>
+
+    <p style="opacity:0.7;">
+      Features outside agreed scope may increase pricing.
     </p>
   </div>
 
-  <button onclick="openTerms()">Start Project Request</button>
+  <!-- PAYMENT -->
+  <div class="card">
+    <h2>💳 Payment Terms</h2>
+    <ul>
+      <li>50% upfront to begin</li>
+      <li>50% after preview</li>
+      <li>Final delivery after full payment</li>
+    </ul>
 
+    <p style="opacity:0.7;">
+      The upfront payment secures your project slot and confirms commitment.
+    </p>
+  </div>
+
+  <!-- CANCELLATION -->
+  <div class="card">
+    <h2>⚠️ Cancellation Policy</h2>
+    <ul>
+      <li>Deposit is non-refundable</li>
+      <li>Progress-based charges may apply</li>
+      <li>May retain full deposit if schedule is impacted</li>
+    </ul>
+  </div>
+
+  <!-- OWNERSHIP -->
+  <div class="card">
+    <h2>⚖️ Ownership</h2>
+    <p>
+      Clients own their final website and content.
+      Base code remains reusable under MIT License.
+    </p>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="card">
+    <h2>⭐ Client Reviews</h2>
+
+    <div class="review">
+      <p>"Super clean design and fast delivery."</p>
+      <span>- @ClientName (Verified)</span>
+    </div>
+
+    <div class="review">
+      <p>"Great communication and smooth UI."</p>
+      <span>- @AnotherUser (Verified)</span>
+    </div>
+
+    <p style="opacity:0.6;">All reviews are verified clients.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <button onclick="openTerms()">Start Project</button>
+    <button onclick="contact()">DM Me</button>
+  </div>
+
+  <!-- POPUP -->
   <div id="termsPopup" class="popup">
     <div class="popup-content">
       <h2>Terms Agreement</h2>
-  
-      <p>
-        By continuing, you agree to the project terms including payment,
-        cancellation policy, and project scope.
-      </p>
-  
-      <ul>
-        <li>50% upfront payment is required</li>
-        <li>Deposits are non-refundable</li>
-        <li>Final delivery occurs after full payment</li>
-      </ul>
-  
+
+      <p>By continuing, you agree to the project terms.</p>
+
       <label>
         <input type="checkbox" id="agreeBox">
-        I agree to the terms
+        I agree
       </label>
-  
+
       <br><br>
-  
+
       <button onclick="continueToForm()">Continue</button>
       <button onclick="closeTerms()">Cancel</button>
     </div>
   </div>
 
-  <div class="card">
-    <h2>⭐ Client Reviews</h2>
-
-    <p style="opacity:0.6;">
-      "Verified" means the reviewer has worked with me directly and has been confirmed.
-    </p>
-  
-    <div class="review">
-      <p>"Super clean design and fast delivery. Exactly what I wanted."</p>
-      <span>- @ClientName (Verified)</span>
-    </div>
-  
-    <div class="review">
-      <p>"Great communication and really smooth UI work."</p>
-      <span>- @AnotherUser (Verified)</span>
-    </div>
-  
-    <p style="opacity:0.6; margin-top:15px;">
-      All reviews are from verified clients.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>📌 Notes</h2>
-    <ul>
-      <li>Flexible pricing based on scope</li>
-      <li>Clear communication during the project</li>
-      <li>Built to match your vision</li>
-    </ul>
-  </div>
-
-  <div class="cta">
-    <button onclick="contact()">DM Me to Start</button>
-  </div>
-
+  <!-- FOOTER -->
   <div class="footer">
-    © 2026 PixelMan — Built for performance
+    © 2026 PixelMan
   </div>
 
 </div>
 
 <script>
 function contact() {
-  window.location.href = "https://discord.com"; // replace with your Discord link
+  window.location.href = "https://discord.com";
+}
+
+function openTerms() {
+  document.getElementById("termsPopup").style.display = "flex";
+}
+
+function closeTerms() {
+  document.getElementById("termsPopup").style.display = "none";
+}
+
+function continueToForm() {
+  if (!document.getElementById("agreeBox").checked) {
+    alert("You must agree to the terms first.");
+    return;
+  }
+
+  window.location.href = "https://forms.google.com";
 }
 </script>
 
