@@ -144,6 +144,39 @@
             <p class="subtitle">Pixel-perfect websites &amp; interactive experiences</p>
         </header>
 
+        <!-- Start Project Section -->
+        <section class="card" style="text-align:center; margin:30px 0;">
+          <button class="button" onclick="openTerms()">Start Project</button>
+        </section>
+        
+        <!-- Terms Popup Section -->
+        <section id="termsPopup" class="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); justify-content:center; align-items:center; overflow:auto; z-index:1000;">
+          <section style="background:#020617; color:white; padding:30px; border-radius:14px; max-width:600px; max-height:90%; overflow-y:auto;">
+            <h2>📄 Project Terms & Agreement</h2>
+        
+            <p>Welcome! Before starting, please read these terms carefully. They cover payment, ownership, cancellation, and project scope.</p>
+        
+            <ul style="margin-left:20px; line-height:1.6;">
+              <li><strong>50% Upfront Payment:</strong> Required to reserve your project slot. Protects your time and mine.</li>
+              <li><strong>Remaining 50%:</strong> Due after preview and before final delivery.</li>
+              <li><strong>Ownership:</strong> Custom domain purchases get full ownership. Base code remains MIT licensed.</li>
+              <li><strong>Refund / Cancellation:</strong> Deposits are non-refundable unless reasonable cause is provided. Halting development after significant work may require full compensation.</li>
+              <li><strong>Scope:</strong> Any work outside agreed project specifications is considered additional and may require extra payment.</li>
+            </ul>
+        
+            <p style="opacity:0.7;">By checking the box below, you confirm that you have read, understood, and agree to these terms before submitting a project request.</p>
+        
+            <label>
+              <input type="checkbox" id="agreeBox"> I have read and agree to the terms
+            </label>
+        
+            <br><br>
+        
+            <button class="button" onclick="continueToForm()">Continue to Project Request</button>
+            <button class="button" style="background:#ff4444; margin-left:10px;" onclick="closeTerms()">Cancel</button>
+          </section>
+        </section>
+
         <!-- Project Scope & Pricing -->
         <section class="card">
             <h2>⚖️ Project Scope &amp; Pricing</h2>
@@ -165,13 +198,16 @@
 
         <!-- Payment Terms -->
         <section class="card">
-            <h2>💳 Payment Terms</h2>
-            <ul style="margin-left: 20px; line-height: 1.8;">
-                <li>50% upfront to secure your project slot</li>
-                <li>Remaining 50% due after preview and before final delivery</li>
-                <li>Full ownership with a custom domain; base code remains MIT licensed</li>
-            </ul>
-            <p style="margin-top: 20px; opacity: 0.75;">This system ensures committed projects and fair use of development time.</p>
+          <h2>💳 Payment Terms & Project Commitment</h2>
+          <ul style="margin-left: 20px; line-height: 1.8;">
+            <li><strong>50% upfront payment:</strong> Required to reserve your project slot. This deposit ensures your commitment and prevents time from being reserved for projects that may be abandoned.</li>
+            <li><strong>Remaining 50%:</strong> Due after you review the project preview, and before final delivery of files and full access.</li>
+            <li><strong>Ownership:</strong> Clients who purchase a custom domain receive full ownership of their website content and final files. Base code remains MIT licensed for learning or inspiration purposes.</li>
+            <li><strong>Refund & Cancellation Policy:</strong> The upfront deposit is generally non-refundable. Exceptions may be considered only under reasonable circumstances. If a project is canceled after significant work, additional compensation may apply for the time and work completed.</li>
+          </ul>
+          <p style="margin-top: 20px; opacity: 0.75;">
+            This system protects both sides — you get a preview before full payment, and I dedicate my time only to committed projects. It ensures fairness, prevents wasted development effort, and maintains project integrity.
+          </p>
         </section>
 
         <!-- What I Offer -->
@@ -224,5 +260,24 @@
             © 2026 PixelMan — Built for performance
         </footer>
     </div>
+
+    <script>
+        function openTerms() {
+          document.getElementById("termsPopup").style.display = "flex";
+        }
+        
+        function closeTerms() {
+          document.getElementById("termsPopup").style.display = "none";
+        }
+        
+        function continueToForm() {
+          const agreed = document.getElementById("agreeBox").checked;
+          if (!agreed) {
+            alert("You must agree to the terms before continuing.");
+            return;
+          }
+          window.location.href = "https://forms.google.com"; // replace with your form
+        }
+    </script>
 </body>
 </html>
