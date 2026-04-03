@@ -6,345 +6,198 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* { box-sizing: border-box; }
-
-body {
+/* Basic Reset */
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+/* Body */
+body {
+  font-family: "Inter", Arial, sans-serif;
   background: linear-gradient(135deg, #0f172a, #020617);
-  color: white;
+  color: #ffffff;
+  line-height: 1.6;
 }
 
+/* Container */
 .container {
-  max-width: 900px;
+  max-width: 960px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
-/* HEADER */
+/* Header */
 h1 {
-  text-align: center;
   font-size: 3rem;
+  text-align: center;
   background: linear-gradient(90deg, #6366f1, #22c55e);
   -webkit-background-clip: text;
   color: transparent;
+  margin-bottom: 10px;
 }
 
 .subtitle {
   text-align: center;
   opacity: 0.7;
-  margin-bottom: 40px;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
 }
 
-/* CARDS */
+/* Cards */
 .card {
   background: rgba(255,255,255,0.05);
-  padding: 25px;
-  border-radius: 14px;
-  margin-bottom: 20px;
-  backdrop-filter: blur(8px);
-  transition: 0.25s;
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   background: rgba(255,255,255,0.08);
 }
 
-h2 { margin-bottom: 15px; }
+.card h2 {
+  margin-bottom: 15px;
+}
 
-ul {
+.card ul {
   list-style: none;
   padding: 0;
 }
 
-li { margin: 10px 0; }
-
-.price {
-  color: #22c55e;
-  font-weight: bold;
+.card li {
+  margin: 10px 0;
 }
 
-/* BUTTONS */
-.cta {
-  text-align: center;
-  margin-top: 30px;
+.card p {
+  opacity: 0.7;
+  margin-top: 10px;
 }
 
-button {
+/* Buttons */
+.button {
+  display: inline-block;
   background: #6366f1;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 10px;
   color: white;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
   cursor: pointer;
-  margin: 5px;
-  transition: 0.2s;
 }
 
-button:hover {
+.button:hover {
   background: #4f46e5;
   transform: scale(1.05);
 }
 
-/* POPUP */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: none;
-  justify-content: center;
-  align-items: center;
+/* Demo Section Buttons */
+.demo-button {
+  background: #22c55e;
+  margin-top: 15px;
 }
 
-.popup-content {
-  background: #020617;
-  padding: 25px;
-  border-radius: 12px;
-  max-width: 400px;
+.demo-button:hover {
+  background: #16a34a;
 }
 
-.terms-box {
-  max-height: 220px;
-  overflow-y: auto;
-  background: rgba(255,255,255,0.05);
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  font-size: 0.9rem;
-}
-
-/* REVIEWS */
-.review {
-  background: rgba(255,255,255,0.05);
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-
-.review span {
-  display: block;
-  margin-top: 8px;
-  opacity: 0.7;
-}
-
-/* FOOTER */
+/* Footer */
 .footer {
   text-align: center;
+  margin-top: 50px;
   opacity: 0.5;
-  margin-top: 40px;
   font-size: 0.9rem;
 }
 </style>
 </head>
-
 <body>
 
 <div class="container">
 
-  <!-- HEADER -->
+  <!-- Hero Section -->
   <h1>PixelMan</h1>
   <p class="subtitle">Pixel-perfect websites & interactive experiences</p>
 
-  <!-- WHAT YOU OFFER -->
+  <!-- Project Scope & Pricing -->
+  <div class="card">
+    <h2>⚖️ Project Scope & Pricing</h2>
+    <h3>💰 Basic Projects (200–1K Robux)</h3>
+    <ul>
+      <li>Portfolio / Landing / Business pages</li>
+      <li>Custom CSS styling & clean UI</li>
+      <li>Static visuals (including 3D decor elements)</li>
+    </ul>
+    <h3>🚀 Advanced Projects (2.5K–3K Robux)</h3>
+    <ul>
+      <li>Interactive 3D elements</li>
+      <li>Complex JavaScript / game-like interfaces</li>
+      <li>Animations beyond basic transitions</li>
+    </ul>
+    <p>Pricing varies by scope and complexity. Static 3D visuals count as basic features.</p>
+  </div>
+
+  <!-- Payment Terms -->
+  <div class="card">
+    <h2>💳 Payment Terms</h2>
+    <ul>
+      <li>50% upfront to secure your project slot</li>
+      <li>Remaining 50% due after preview and before final delivery</li>
+      <li>Full ownership with a custom domain; base code remains MIT licensed</li>
+    </ul>
+    <p>This system ensures committed projects and fair use of development time.</p>
+  </div>
+
+  <!-- What I Offer -->
   <div class="card">
     <h2>✨ What I Offer</h2>
     <ul>
-      <li>Modern, responsive website design</li>
-      <li>Custom-built layouts (no templates)</li>
-      <li>Advanced CSS & animations</li>
-      <li>Interactive UI systems</li>
-      <li>3D visuals (static or interactive)</li>
-      <li>Game-style interfaces</li>
-      <li>Optimized performance</li>
+      <li>Modern, responsive designs (mobile & desktop)</li>
+      <li>Custom layouts, no templates</li>
+      <li>Advanced CSS & hover animations</li>
+      <li>3D visuals & interactive elements</li>
+      <li>Game-style UI / immersive layouts</li>
+      <li>Fast, optimized performance</li>
       <li>Portfolio-ready final product</li>
     </ul>
   </div>
 
-  <!-- PRICING -->
-  <div class="card">
-    <h2>⚖️ Project Scope & Pricing</h2>
-
-    <h3>💰 Basic (200–1K Robux)</h3>
-    <ul>
-      <li>Portfolio / business / landing pages</li>
-      <li>Custom CSS UI</li>
-      <li>Static visuals (including 3D decor)</li>
-    </ul>
-
-    <h3>🚀 Advanced (2.5K–3K Robux)</h3>
-    <ul>
-      <li>Interactive 3D</li>
-      <li>Complex animations</li>
-      <li>Custom systems / game-like UI</li>
-    </ul>
-
-    <p style="opacity:0.7;">
-      Features outside agreed scope may increase pricing.
-    </p>
+  <!-- Demo Button -->
+  <div class="card" style="text-align:center;">
+    <h2>🌐 View Demo Portfolio</h2>
+    <p>Check out live examples of my work — wiki pages, landing pages, 3D simulations, and more.</p>
+    <a href="demo.html" class="button demo-button">Go to Demo Page</a>
   </div>
 
-  <!-- PAYMENT -->
-  <div class="card">
-    <h2>💳 Payment Terms</h2>
-    <ul>
-      <li>50% upfront to begin</li>
-      <li>50% after preview</li>
-      <li>Final delivery after full payment</li>
-    </ul>
-
-    <p style="opacity:0.7;">
-      The upfront payment secures your project slot and confirms commitment.
-    </p>
-  </div>
-
-  <!-- CANCELLATION -->
-  <div class="card">
-    <h2>⚠️ Cancellation Policy</h2>
-    <ul>
-      <li>Deposit is non-refundable</li>
-      <li>Progress-based charges may apply</li>
-      <li>May retain full deposit if schedule is impacted</li>
-    </ul>
-  </div>
-
-  <!-- OWNERSHIP -->
-  <div class="card">
-    <h2>⚖️ Ownership</h2>
-    <p>
-      Clients own their final website and content.
-      Base code remains reusable under MIT License.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>🔗 Endorsements & Anchors</h2>
-    <p style="opacity:0.7;">
-      Trusted members in the dev community who are aware of my work:
-    </p>
-  
-    <div class="review">
-      <p>"PixelMan has delivered several polished projects for me. His work is clean, fast, and reliable."</p>
-      <span>- Developer #### (Community Verified)</span>
-    </div>
-  
-    <p style="opacity:0.6; margin-top:10px;">
-      Note: This is a reference to past collaboration. Please do not contact them directly regarding your project.
-    </p>
-    <p>Not an actualy review ( yet )</p>
-  </div>
-
-  <!-- REVIEWS -->
+  <!-- Client Reviews -->
   <div class="card">
     <h2>⭐ Client Reviews</h2>
-
+    <p style="opacity:0.6;">"Verified" means the reviewer has worked with me directly.</p>
     <div class="review">
-      <p>No reviews yet. Be the first!</p>
-      <span>- @Username (Verified)</span>
+      <p>"Super clean design and fast delivery. Exactly what I wanted."</p>
+      <span>- @ClientName (Verified)</span>
     </div>
-
-    <p style="opacity:0.6;">All reviews are verified clients.</p>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta">
-    <button onclick="openTerms()">Start Project</button>
-    <button onclick="contact()">DM Me</button>
-  </div>
-
-  <!-- POPUP -->
-  <div id="termsPopup" class="popup">
-    <div class="popup-content">
-  
-      <h2>Terms Agreement</h2>
-  
-      <div id="termsBox" class="terms-box">
-  
-        <p><strong>💳 Payment Terms</strong></p>
-        <p>• 50% upfront is required to begin the project.</p>
-        <p>• Remaining 50% is due after preview and before final delivery.</p>
-  
-        <p><strong>⚠️ Cancellation Policy</strong></p>
-        <p>• The upfront payment is non-refundable.</p>
-        <p>• Additional charges may apply depending on progress.</p>
-  
-        <p><strong>⚖️ Project Scope</strong></p>
-        <p>• Features outside the agreed scope may increase pricing.</p>
-  
-        <p><strong>🧾 Ownership</strong></p>
-        <p>• Clients own final website content.</p>
-        <p>• Base code may be reused under MIT License.</p>
-  
-        <p style="margin-top:30px;"><strong>End of Terms</strong></p>
-  
-      </div>
-  
-      <label>
-        <input type="checkbox" id="agreeBox" disabled>
-        I have read and agree to the terms
-      </label>
-  
-      <br><br>
-  
-      <button onclick="continueToForm()">Agree & Continue</button>
-      <button onclick="closeTerms()">Cancel</button>
-  
+    <div class="review">
+      <p>"Great communication and really smooth UI work."</p>
+      <span>- @AnotherUser (Verified)</span>
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- Contact / CTA -->
+  <div class="card" style="text-align:center;">
+    <h2>📨 Get in Touch</h2>
+    <p>DM me on Discord to discuss your project and start building your website today!</p>
+    <a href="https://discord.com" class="button">DM Me</a>
+  </div>
+
   <div class="footer">
-    © 2026 PixelMan
+    © 2026 PixelMan — Built for performance
   </div>
 
 </div>
-
-<script>
-function contact() {
-  window.location.href = "https://discord.com";
-}
-
-function openTerms() {
-  const popup = document.getElementById("termsPopup");
-  const termsBox = document.getElementById("termsBox");
-  const agreeBox = document.getElementById("agreeBox");
-
-  popup.style.display = "flex";
-
-  // Reset state
-  agreeBox.disabled = true;
-  agreeBox.checked = false;
-  termsBox.scrollTop = 0;
-
-  // Unlock checkbox when scrolled to bottom
-  function unlock() {
-    if (termsBox.scrollTop + termsBox.clientHeight >= termsBox.scrollHeight) {
-      agreeBox.disabled = false;
-      termsBox.removeEventListener("scroll", unlock);
-    }
-  }
-
-  termsBox.addEventListener("scroll", unlock);
-}
-
-function closeTerms() {
-  document.getElementById("termsPopup").style.display = "none";
-}
-
-function continueToForm() {
-  const agreed = document.getElementById("agreeBox").checked;
-
-  if (!agreed) {
-    alert("You must scroll and agree to the terms first.");
-    return;
-  }
-
-  window.location.href = "https://forms.google.com"; // replace with your form
-}
-</script>
-
 </body>
 </html>
