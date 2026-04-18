@@ -1,1 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PixelMan — Full Terms &amp; Policies. Clear, fair, Robux-friendly rules for every Roblox web project.">
+    <title>PixelMan | Terms &amp; Policies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        :root {
+            --tw-color-primary: #6366f1;
+            --tw-color-accent: #22c55e;
+        }
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        .tail-container * {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+       
+        .logo-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+        }
+        .hero-bg {
+            background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.15) 0%, transparent 50%);
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes glowPulse {
+            0%, 100% { text-shadow: 0 0 15px rgb(99 102 241); }
+            50% { text-shadow: 0 0 35px rgb(34 197 94); }
+        }
+        .animate-in {
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+       
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(99 102 241 / 0.25);
+        }
+        .nav-link {
+            position: relative;
+        }
+       
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(to right, #6366f1, #22c55e);
+        }
+       
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .section-header {
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="tail-container text-white">
+    <!-- NAVBAR (same branding as main site) -->
+    <nav class="sticky top-0 z-50 bg-[#020617]/80 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
+           
+            <!-- Logo -->
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-[#6366f1] to-[#22c55e] rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-inner">🧩</div>
+                <h1 class="logo-font text-3xl tracking-[-1px] bg-gradient-to-r from-[#6366f1] to-[#22c55e] bg-clip-text text-transparent">PixelMan</h1>
+            </div>
 
+            <!-- Page Title -->
+            <div class="hidden md:flex items-center text-sm font-medium tracking-widest text-emerald-400">
+                TERMS &amp; POLICIES
+            </div>
+
+            <!-- CTA: Single button to go back (as requested) -->
+            <div class="flex items-center gap-x-4">
+                <button onclick="window.location.href='index.html'"
+                        class="px-8 py-3 bg-gradient-to-r from-[#6366f1] to-[#22c55e] hover:from-[#22c55e] hover:to-[#6366f1] text-white font-semibold rounded-3xl flex items-center gap-x-2 shadow-lg shadow-[#6366f1]/30 hover:shadow-xl hover:shadow-[#6366f1]/50">
+                    ← BACK TO HOMEPAGE
+                </button>
+                
+                <!-- Mobile back button -->
+                <button onclick="window.location.href='index.html'" 
+                        class="md:hidden w-10 h-10 flex items-center justify-center text-2xl bg-white/10 hover:bg-white/20 rounded-2xl">
+                    ←
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / HEADER -->
+    <section class="hero-bg min-h-[40vh] flex items-center relative overflow-hidden">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center">
+            <div class="inline-flex items-center bg-white/10 text-white text-sm font-medium px-6 h-9 rounded-3xl backdrop-blur-md border border-white/10 mb-6">
+                LAST UPDATED APRIL 17, 2026
+            </div>
+            <h1 class="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-[-3px] leading-none logo-font animate-in">
+                Terms &amp; Policies
+            </h1>
+            <p class="text-2xl md:text-3xl text-zinc-300 max-w-2xl mx-auto mt-6">
+                Clear. Fair. Robux-friendly.<br>
+                Everything you need to know before we build something legendary.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN TERMS CONTENT -->
+    <div class="max-w-screen-2xl mx-auto px-8 py-20">
+        <div class="grid lg:grid-cols-12 gap-12">
+            
+            <!-- Left column: Table of contents style + intro -->
+            <div class="lg:col-span-4">
+                <div class="sticky top-24 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center gap-3">
+                        <span class="text-emerald-400">📋</span> Quick Navigation
+                    </h3>
+                    <div class="flex flex-col gap-y-3 text-sm text-zinc-300">
+                        <a href="#payment" onclick="document.getElementById('payment').scrollIntoView({behavior:'smooth'})" class="hover:text-white flex items-center gap-2">→ Payment &amp; Robux</a>
+                        <a href="#process" onclick="document.getElementById('process').scrollIntoView({behavior:'smooth'})" class="hover:text-white flex items-center gap-2">→ How Projects Work</a>
+                        <a href="#ownership" onclick="document.getElementById('ownership').scrollIntoView({behavior:'smooth'})" class="hover:text-white flex items-center gap-2">→ Ownership &amp; Rights</a>
+                        <a href="#refunds" onclick="document.getElementById('refunds').scrollIntoView({behavior:'smooth'})" class="hover:text-white flex items-center gap-2">→ Refunds &amp; Cancellations</a>
+                        <a href="#revisions" onclick="document.getElementById('revisions').scrollIntoView({behavior:'smooth'})" class="hover:text-white flex items-center gap-2">→ Revisions &amp; Scope</a>
+                        <a href="#liability" onclick="document.getElementById('liability').scrollIntoView({behavior:'smooth'})" class="hover:text-white flex items-center gap-2">→ Warranties &amp; Liability</a>
+                        <a href="#privacy" onclick="document.getElementById('privacy').scrollIntoView({behavior:'smooth'})" class="hover:text-white flex items-center gap-2">→ Privacy</a>
+                    </div>
+                    <div class="mt-10 pt-8 border-t border-white/10 text-xs text-zinc-400">
+                        By starting a project you automatically agree to these terms.<br>
+                        Questions? Just DM me on Discord.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right column: Full terms -->
+            <div class="lg:col-span-8 space-y-16 text-zinc-300 leading-relaxed">
+
+                <!-- Intro -->
+                <div>
+                    <h2 class="text-4xl font-semibold mb-4 text-white">Welcome to PixelMan</h2>
+                    <p class="text-lg">These Terms &amp; Policies apply to every project I build for Roblox creators. They’re written to be simple, honest, and protective of both of us. No legalese overload — just the facts.</p>
+                    <p class="mt-4">If you have any questions before agreeing, message me anytime. I’m here to make your Roblox presence look pro.</p>
+                </div>
+
+                <!-- Payment -->
+                <div id="payment">
+                    <h2 class="section-header text-3xl font-semibold mb-6 flex items-center gap-3">💰 1. Payment &amp; Robux</h2>
+                    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">All pricing</span>
+                            <span class="text-emerald-400 font-semibold">Quoted and paid in Robux only</span>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-emerald-400 font-semibold mb-1">Basic Tier</p>
+                                <p class="text-2xl font-semibold">200 – 1,000 Robux</p>
+                            </div>
+                            <div>
+                                <p class="text-emerald-400 font-semibold mb-1">Advanced Tier (most popular)</p>
+                                <p class="text-2xl font-semibold">2,500 – 3,000 Robux</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm">
+                            <li class="flex gap-3"><strong class="text-emerald-400 w-6">50%</strong> Upfront deposit — reserves your slot and starts work instantly.</li>
+                            <li class="flex gap-3"><strong class="text-emerald-400 w-6">50%</strong> Final payment — due only after you approve the live preview.</li>
+                            <li class="flex gap-3"><strong class="text-amber-400 w-6">Note</strong> Custom domain &amp; hosting are your responsibility (separate expense, not included in Robux fee).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Process -->
+                <div id="process">
+                    <h2 class="section-header text-3xl font-semibold mb-6 flex items-center gap-3">🔄 2. Project Process — Zero Surprises</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#6366f1] to-[#22c55e] flex-shrink-0 rounded-2xl flex items-center justify-center text-2xl font-bold">1</div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg">Deposit received</h4>
+                                <p>Work starts the same day. I’ll confirm scope and send a quick kickoff message.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#6366f1] to-[#22c55e] flex-shrink-0 rounded-2xl flex items-center justify-center text-2xl font-bold">2</div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg">Live preview</h4>
+                                <p>You get a fully working link to test everything before the final payment.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#6366f1] to-[#22c55e] flex-shrink-0 rounded-2xl flex items-center justify-center text-2xl font-bold">3</div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg">Final delivery</h4>
+                                <p>Full source code, assets, deployment guide, and 30 days of free bug-fix support.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ownership -->
+                <div id="ownership">
+                    <h2 class="section-header text-3xl font-semibold mb-6 flex items-center gap-3">🧩 3. Ownership &amp; Rights</h2>
+                    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+                        <ul class="space-y-5 text-base">
+                            <li class="flex gap-4"><span class="text-emerald-400 text-2xl">✓</span> <strong>Full ownership</strong> of the finished website, design, and custom code is transferred to you after final payment.</li>
+                            <li class="flex gap-4"><span class="text-emerald-400 text-2xl">✓</span> You can use, modify, and host the site anywhere you want.</li>
+                            <li class="flex gap-4"><span class="text-emerald-400 text-2xl">✓</span> Reusable base code (framework/components) is provided under the <span class="font-semibold text-white">MIT License</span> — free to learn from and use in your own projects.</li>
+                            <li class="flex gap-4"><span class="text-amber-400 text-2xl">✕</span> You may not resell or redistribute the exact code/designs I created for you.</li>
+                            <li class="flex gap-4"><span class="text-emerald-400 text-2xl">✓</span> I may showcase the project in my portfolio (with full credit to you) unless you request privacy.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Refunds -->
+                <div id="refunds">
+                    <h2 class="section-header text-3xl font-semibold mb-6 flex items-center gap-3">🚫 4. Refunds &amp; Cancellations</h2>
+                    <p class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 text-lg">
+                        The 50% upfront deposit is <strong class="text-amber-400">non-refundable</strong> once work has started (which happens immediately after payment).<br><br>
+                        Full refunds are only possible in the extremely rare case that I cannot deliver the agreed scope (my decision, no questions asked). No refunds after preview approval or final delivery.
+                    </p>
+                </div>
+
+                <!-- Revisions -->
+                <div id="revisions">
+                    <h2 class="section-header text-3xl font-semibold mb-6 flex items-center gap-3">🔁 5. Revisions &amp; Scope Changes</h2>
+                    <p class="text-zinc-300">Your base price includes up to <strong class="text-white">2 full revision rounds</strong> after the preview. Small tweaks are always welcome during the preview phase.</p>
+                    <p class="mt-4 text-amber-400 font-medium">Anything outside the original brief (new features, extra pages, major redesigns) will be quoted separately and billed in additional Robux.</p>
+                </div>
+
+                <!-- Liability -->
+                <div id="liability">
+                    <h2 class="section-header text-3xl font-semibold mb-6 flex items-center gap-3">🛡️ 6. Warranties &amp; Limitation of Liability</h2>
+                    <div class="text-sm space-y-4">
+                        <p>I guarantee the delivered work will match the preview you approved and function as described.</p>
+                        <p>PixelMan is not liable for:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Future Roblox platform updates that break functionality</li>
+                            <li>Third-party hosting, domain issues, or external services</li>
+                            <li>Any indirect business or financial losses</li>
+                        </ul>
+                        <p class="pt-4 border-t border-white/10">My total liability is limited to the total Robux you paid for the project.</p>
+                    </div>
+                </div>
+
+                <!-- Privacy -->
+                <div id="privacy">
+                    <h2 class="section-header text-3xl font-semibold mb-6 flex items-center gap-3">🔒 7. Privacy Policy</h2>
+                    <p class="text-base">I only collect what’s needed to complete your project (Discord name, project brief, payment confirmation). Your information is never shared or sold. After delivery I may ask for an optional testimonial.</p>
+                </div>
+
+                <!-- Closing -->
+                <div class="bg-gradient-to-br from-[#6366f1]/10 to-[#22c55e]/10 border border-white/10 rounded-3xl p-10 text-center">
+                    <p class="text-lg font-medium">Thanks for reading! These terms exist so we can both focus on building something awesome.</p>
+                    <p class="text-emerald-400 mt-4 text-sm">— PixelMan 🧩</p>
+                </div>
+
+                <!-- SINGLE BUTTON TO GO BACK (prominently placed at the very bottom as requested) -->
+                <div class="flex justify-center pt-12">
+                    <button onclick="window.location.href='index.html'"
+                            class="px-14 py-8 text-2xl font-semibold bg-white text-zinc-950 rounded-3xl inline-flex items-center gap-x-4 hover:scale-110 shadow-2xl">
+                        ← BACK TO HOMEPAGE
+                        <span class="text-5xl">🧩</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER (same as main site) -->
+    <footer class="bg-[#020617] border-t border-white/10 py-12">
+        <div class="max-w-screen-2xl mx-auto px-8 text-zinc-400 text-sm flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>© 2026 PixelMan — Built with precision for the Roblox community</div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white">Discord</a>
+                <a href="#" class="hover:text-white">Twitter</a>
+                <a href="#" class="hover:text-white">Roblox</a>
+            </div>
+            <div class="text-xs flex items-center gap-4">
+                MIT licensed base code • Full ownership on custom domains
+                <span class="text-emerald-400">You are currently viewing the Terms &amp; Policies page</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script already loaded
+        console.log('%c📄 PixelMan Terms & Policies page loaded', 'color:#22c55e; font-family:monospace;');
+    </script>
+</body>
+</html>
